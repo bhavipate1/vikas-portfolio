@@ -1,7 +1,20 @@
 "use client";
 
-import { motion, useReducedMotion, type Variants } from "framer-motion";
-import type { ReactNode } from "react";
+import { motion, useInView, useReducedMotion, type Variants } from "framer-motion";
+import { useRef, type ReactNode } from "react";
+
+/**
+ * Scroll reveals are driven by their own `useInView` observer and an explicit
+ * `animate` prop, rather than by `whileInView`.
+ *
+ * Why: `whileInView` on a component nested inside another motion component gets
+ * hijacked by the parent — the child either fires as soon as the ancestor
+ * mounts (revealing whole pages before they're scrolled to) or never resolves
+ * at all (leaving photos permanently clipped). Owning the observer per element
+ * makes each reveal independent of its ancestry.
+ */
+
+const VIEWPORT = { once: true, margin: "-60px 0px -60px 0px" } as const;
 
 type RevealProps = {
   children: ReactNode;
@@ -13,6 +26,8 @@ type RevealProps = {
 
 export function Reveal({ children, className, delay = 0, y = 24, as = "div" }: RevealProps) {
   const reduceMotion = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, VIEWPORT);
 
   const variants: Variants = {
     hidden: { opacity: 0, y: reduceMotion ? 0 : y },
@@ -27,10 +42,10 @@ export function Reveal({ children, className, delay = 0, y = 24, as = "div" }: R
 
   return (
     <Component
+      ref={ref}
       className={className}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
+      animate={inView ? "visible" : "hidden"}
       variants={variants}
     >
       {children}
@@ -50,12 +65,15 @@ export function RevealGroup({
   delayChildren?: number;
 }) {
   const reduceMotion = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, VIEWPORT);
+
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
+      animate={inView ? "visible" : "hidden"}
       variants={{
         hidden: {},
         visible: {
@@ -102,7 +120,7 @@ export function RevealWords({
             }}
           >
             {word}
-            {i < words.length - 1 ? " " : ""}
+            {i < words.length - 1 ? " " : ""}
           </motion.span>
         </span>
       ))}

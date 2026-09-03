@@ -63,6 +63,30 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/*
+ * Route-change fade. CSS rather than Framer Motion on purpose: a motion parent
+ * wrapping the page cascades into child motion components and fires every
+ * scroll reveal at load. See components/page-transition.tsx.
+ */
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.page-fade {
+  animation: page-fade-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-fade {
+    animation-duration: 0.01s;
+  }
+}
+
 h1, h2, h3, h4 {
   font-family: var(--font-heading), Arial, Helvetica, sans-serif;
   letter-spacing: -0.025em;
