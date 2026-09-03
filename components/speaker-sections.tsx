@@ -119,10 +119,10 @@ export function SpeakerEngagements() {
             <motion.div
               key={item.title}
               variants={revealItem}
-              whileHover={{ x: 4 }}
+              whileHover={{ x: 6 }}
               transition={{ duration: 0.2 }}
-              className={`flex items-center gap-5 py-5 text-paper-foreground ${
-                i === 0 ? "-mx-5 rounded-xl bg-paper-surface px-5 sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10" : ""
+              className={`group flex items-center gap-5 py-5 text-paper-foreground transition-colors duration-300 ease-out hover:bg-paper-surface ${
+                i === 0 ? "-mx-5 rounded-xl bg-paper-surface px-5 sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10" : "-mx-5 rounded-xl px-5 sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10"
               }`}
             >
               <span className="mr-5 text-xs font-normal tabular-nums text-paper-muted">
@@ -133,13 +133,13 @@ export function SpeakerEngagements() {
                 <p className="mt-0.5 text-xs text-paper-muted sm:text-sm">{item.meta}</p>
               </div>
               <span
-                className={`hidden shrink-0 rounded-full px-3 py-1 text-[11px] font-normal uppercase tracking-wide sm:inline-flex ${
-                  i === 0 ? "bg-[#8a5a34] text-white" : "border border-paper-border text-[#8a5a34]"
+                className={`hidden shrink-0 rounded-full px-3 py-1 text-[11px] font-normal uppercase tracking-wide transition-colors duration-300 sm:inline-flex ${
+                  i === 0 ? "bg-[#8a5a34] text-white" : "border border-paper-border text-[#8a5a34] group-hover:border-[#8a5a34]"
                 }`}
               >
                 {item.tag}
               </span>
-              <ArrowUpRightIcon className="h-4 w-4 shrink-0 text-[#8a5a34]" />
+              <ArrowUpRightIcon className="h-4 w-4 shrink-0 text-[#8a5a34] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </motion.div>
           ))}
         </RevealGroup>
