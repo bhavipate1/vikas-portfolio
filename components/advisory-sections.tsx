@@ -253,7 +253,7 @@ export function AdvisoryCause() {
                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
               />
             </div>
-            <div className="mt-2 flex items-baseline justify-between text-xs text-muted">
+            <div className="mt-2 flex flex-col gap-1 text-xs text-muted sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
               <span>{advisory.cause.progress.note}</span>
               <span className="shrink-0">{advisory.cause.progress.goalLabel}</span>
             </div>
