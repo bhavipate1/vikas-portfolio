@@ -224,10 +224,10 @@ export function AboutTeaser() {
               <span className="absolute left-6 top-6 rounded-full bg-background/80 px-3.5 py-2 text-[10px] font-semibold uppercase tracking-wide text-muted backdrop-blur-sm">
                 {home.about.photoBadge}
               </span>
-              <div className="absolute inset-x-0 bottom-0 flex gap-5 border-t border-foreground/25 bg-gradient-to-t from-background to-background/70 px-7 pt-6 pb-7 backdrop-blur-sm">
+              <div className="absolute inset-x-0 bottom-0 flex gap-3 border-t border-foreground/25 bg-gradient-to-t from-background to-background/70 px-4 pt-6 pb-7 backdrop-blur-sm sm:gap-5 sm:px-7">
                 {home.about.photoStats.map((stat) => (
-                  <div key={stat.label} className="flex-1 text-left">
-                    <div className="font-heading text-5xl font-semibold text-accent">{stat.value}</div>
+                  <div key={stat.label} className="min-w-0 flex-1 text-left">
+                    <div className="truncate font-heading text-3xl font-semibold text-accent sm:text-5xl">{stat.value}</div>
                     <div className="mt-2 text-[10px] uppercase tracking-wide text-muted">{stat.label}</div>
                   </div>
                 ))}
