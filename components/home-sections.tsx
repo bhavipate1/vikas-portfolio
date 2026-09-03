@@ -323,7 +323,7 @@ export function InTheRoom() {
 
 export function QuoteStats() {
   return (
-    <section className="border-y border-border bg-surface-2 pt-14 pb-2">
+    <section className="border-y border-border bg-surface-2 pt-14 pb-14 sm:pb-16">
       <div className="mx-auto grid max-w-8xl grid-cols-1 gap-10 px-5 sm:px-8 lg:grid-cols-[400px_1fr] lg:items-center lg:gap-20 lg:px-10">
         <PhotoReveal
           vignette={false}
@@ -434,7 +434,7 @@ export function Formats() {
 
 export function Perspectives() {
   return (
-    <section className="bg-paper pt-2 pb-0">
+    <section className="bg-paper pt-14 pb-0 sm:pt-16">
       <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-10">
         <Reveal className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
           <div>
