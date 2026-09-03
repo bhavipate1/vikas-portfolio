@@ -249,97 +249,53 @@ export function TurnsThatMattered() {
           </Reveal>
         </div>
 
-        {/* Editorial zigzag timeline — replaces the boxed tab-list/card pattern */}
-        <Reveal delay={0.1}>
-          <div className="relative mt-20 hidden sm:block">
-            <div className="absolute left-0 right-0 top-1/2 h-px -translate-y-1/2 bg-paper-border" aria-hidden />
-            <div className="relative flex items-start justify-between">
-              {about.turns.items.map((item, i) => {
-                const label = (
-                  <span
-                    className={`whitespace-nowrap text-xs font-normal uppercase tracking-[0.18em] tabular-nums transition-colors ${
-                      active === i ? "text-[#8a5a34]" : "text-paper-muted group-hover:text-paper-foreground"
-                    }`}
-                  >
-                    {item.year}
-                  </span>
-                );
-                const stem = (
-                  <span
-                    className={`h-6 w-px transition-colors ${active === i ? "bg-[#8a5a34]" : "bg-paper-border"}`}
-                    aria-hidden
-                  />
-                );
-                const dot = (
-                  <span
-                    className={`relative z-10 h-2.5 w-2.5 shrink-0 rounded-full border-2 bg-paper transition-colors ${
-                      active === i ? "border-[#8a5a34] bg-[#8a5a34]" : "border-paper-muted/50 group-hover:border-paper-muted"
-                    }`}
-                  />
-                );
-                const above = (
-                  <span className="flex flex-col items-center gap-3 pb-3">
-                    {label}
-                    {stem}
-                  </span>
-                );
-                const below = (
-                  <span className="flex flex-col items-center gap-3 pt-3">
-                    {stem}
-                    {label}
-                  </span>
-                );
-                return (
-                  <button
-                    key={item.year}
-                    type="button"
-                    onClick={() => setActive(i)}
-                    className="group relative flex flex-1 flex-col items-center focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4"
-                  >
-                    {i % 2 === 0 ? above : <span className="h-[42px]" aria-hidden />}
-                    {dot}
-                    {i % 2 !== 0 ? below : <span className="h-[42px]" aria-hidden />}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        </Reveal>
-
-        {/* Mobile: simple scrollable pill list */}
-        <Reveal delay={0.1} className="mt-8 flex gap-2 overflow-x-auto pb-1 sm:hidden">
-          {about.turns.items.map((item, i) => (
-            <button
-              key={item.year}
-              type="button"
-              onClick={() => setActive(i)}
-              className={`shrink-0 rounded-full border px-4 py-1.5 text-xs uppercase tracking-wide transition-colors ${
-                active === i ? "border-[#8a5a34] bg-[#8a5a34] text-white" : "border-paper-border text-paper-muted"
-              }`}
-            >
-              {item.year}
-            </button>
-          ))}
-        </Reveal>
-
-        {/* Content — no bordered card; the giant year numeral bleeds off the edge */}
-        <div className="relative mt-14 overflow-hidden sm:mt-20">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={active}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="grid grid-cols-1 items-start gap-6 lg:grid-cols-[0.9fr_1.6fr] lg:gap-16"
-            >
-              <span
-                aria-hidden
-                className="select-none font-heading text-[6rem] font-semibold leading-none tracking-tight text-paper-foreground/[0.08] sm:text-[9rem] lg:-ml-3"
+        <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1.4fr] lg:gap-12">
+          <Reveal delay={0.1}>
+            {about.turns.items.map((item, i) => (
+              <motion.button
+                key={item.year}
+                type="button"
+                onClick={() => setActive(i)}
+                whileHover={{ x: 4 }}
+                transition={{ duration: 0.2 }}
+                className={`flex w-full flex-col gap-1.5 border-l-2 py-5 pl-5 text-left transition-colors sm:pl-6 ${
+                  active === i ? "border-[#8a5a34]" : "border-paper-border"
+                }`}
               >
-                {current.year}
-              </span>
-              <div>
+                <span
+                  className={`text-xs font-normal uppercase tracking-[0.18em] tabular-nums transition-colors ${
+                    active === i ? "text-[#8a5a34]" : "text-paper-muted"
+                  }`}
+                >
+                  {item.year}
+                </span>
+                <span
+                  className={`text-base font-semibold leading-snug transition-colors sm:text-lg ${
+                    active === i ? "text-paper-foreground" : "text-paper-muted"
+                  }`}
+                >
+                  {item.title}
+                </span>
+              </motion.button>
+            ))}
+          </Reveal>
+
+          <div className="relative overflow-hidden border border-paper-border bg-paper-surface p-8 sm:px-14 sm:pt-14 sm:pb-12">
+            <span
+              aria-hidden
+              className="pointer-events-none absolute -right-2 -top-4 select-none font-heading text-[6rem] font-semibold leading-none tracking-tight text-paper-foreground/[0.06] sm:text-[8rem]"
+            >
+              {current.year}
+            </span>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={active}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                className="relative"
+              >
                 {current.tag ? (
                   <span className="inline-flex items-center rounded-full border border-paper-border px-3 py-1 text-xs uppercase tracking-wide text-accent">
                     {current.tag}
@@ -347,21 +303,20 @@ export function TurnsThatMattered() {
                 ) : (
                   <span className="block h-[26px]" />
                 )}
-                <h3 className="mt-5 text-2xl font-semibold leading-snug text-paper-foreground sm:text-3xl">
+                <h3 className="mt-7 text-2xl font-semibold leading-snug text-paper-foreground sm:text-3xl">
                   {current.title}
                 </h3>
                 {current.school && <p className="mt-2 text-sm text-paper-muted">{current.school}</p>}
-                {current.body && (
-                  <p className="mt-4 max-w-xl text-sm leading-relaxed text-paper-muted sm:text-base">{current.body}</p>
-                )}
-                <div className="mt-8 flex items-center gap-3 border-t border-paper-border pt-6">
+                {current.body && <p className="mt-4 text-sm leading-relaxed text-paper-muted sm:text-base">{current.body}</p>}
+                <div className="mt-8 flex items-center justify-between gap-5 border-t border-paper-border pt-8">
+                  <span aria-hidden />
                   <span className="text-xs uppercase tracking-wide text-paper-muted">
                     Turn {active + 1} of {about.turns.items.length}
                   </span>
                 </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </section>
