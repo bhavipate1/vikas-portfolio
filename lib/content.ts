@@ -601,10 +601,26 @@ export const advisory = {
         question: "Do you keep any part of the contribution?",
         answer: "No. The entire amount goes to the named cause — the receipt comes from them, not from me. There is no invoice and no fee.",
       },
-      { question: "What can we actually talk about?", answer: undefined as string | undefined },
-      { question: "Is this consulting for my company?", answer: undefined as string | undefined },
-      { question: "What if I can't contribute right now?", answer: undefined as string | undefined },
-      { question: "How is the cause chosen?", answer: undefined as string | undefined },
+      {
+        question: "What can we actually talk about?",
+        answer:
+          "Anything you're weighing up in career and leadership, AI and transformation, startup and product decisions, or student mentorship. If it doesn't fit one of those, ask anyway.",
+      },
+      {
+        question: "Is this consulting for my company?",
+        answer:
+          "No — this is a personal, one-to-one conversation, not a company engagement. For a formal keynote, workshop, or advisory arrangement for your organisation, use the speaking page instead.",
+      },
+      {
+        question: "What if I can't contribute right now?",
+        answer:
+          "Say so when you write in. Student and early-career requests are never turned away for that reason — the conversation happens regardless.",
+      },
+      {
+        question: "How is the cause chosen?",
+        answer:
+          "One beneficiary organisation is named publicly at the start of each quarter, chosen around a simple test: does it get education or opportunity to students who wouldn't otherwise have access to it.",
+      },
     ],
   },
 };
