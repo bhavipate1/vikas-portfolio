@@ -75,6 +75,7 @@ export function ContactHero() {
                   rel="noopener noreferrer"
                   variants={revealItem}
                   whileHover={{ y: -3 }}
+                  whileTap={{ scale: 0.97 }}
                   className="block focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
                 >
                   <TiltCard className="flex items-center gap-3.5 border border-border bg-surface px-5 py-5 transition-colors hover:border-accent">
@@ -140,7 +141,7 @@ export function ContactReasons() {
           {contact.reasons.items.map((item) => {
             const Icon = reasonIcons[item.icon as keyof typeof reasonIcons];
             return (
-              <motion.div key={item.title} variants={revealItem} whileHover={{ y: -3 }} className="group">
+              <motion.div key={item.title} variants={revealItem} whileHover={{ y: -3 }} whileTap={{ scale: 0.98 }} className="group">
                 <TiltCard className="flex h-full flex-col bg-paper-surface px-7 pt-8 pb-9 transition-colors duration-300 ease-out hover:bg-accent-soft/40">
                   <span className="flex h-11 w-11 items-center justify-center rounded-[3px] bg-[#8a5a34] text-white transition-colors duration-300 group-hover:bg-accent">
                     <Icon className="h-5 w-5" />

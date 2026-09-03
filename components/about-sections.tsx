@@ -175,7 +175,7 @@ export function EducationSection() {
 
         <RevealGroup className="grid grid-cols-1 gap-6 sm:grid-cols-3" stagger={0.06}>
           {about.education.items.map((item, i) => (
-            <motion.div key={item.org} variants={revealItem} whileHover={{ y: -3 }} transition={{ duration: 0.25 }}>
+            <motion.div key={item.org} variants={revealItem} whileHover={{ y: -3 }} whileTap={{ scale: 0.98 }} transition={{ duration: 0.25 }}>
               <TiltCard className="overflow-hidden border border-paper-border px-8 pt-9 pb-8">
                 <span
                   aria-hidden
@@ -257,6 +257,7 @@ export function TurnsThatMattered() {
                 type="button"
                 onClick={() => setActive(i)}
                 whileHover={{ x: 4 }}
+                whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.2 }}
                 className={`flex w-full flex-col gap-1.5 border-l-2 py-5 pl-5 text-left transition-colors sm:pl-6 ${
                   active === i ? "border-[#8a5a34]" : "border-paper-border"
@@ -337,6 +338,7 @@ export function ValuesTested() {
             <Reveal key={item.title} delay={i * 0.05}>
               <motion.div
                 whileHover="hover"
+                whileTap="hover"
                 initial="rest"
                 animate="rest"
                 className={`group grid grid-cols-1 gap-2 pl-0 pr-4 transition-[padding] duration-300 hover:pl-4 sm:grid-cols-[28px_minmax(0,300px)_28px_1fr] sm:items-baseline sm:gap-8 ${
@@ -414,6 +416,7 @@ export function OtherHalf() {
               key={fact.tag}
               variants={revealItem}
               whileHover={{ y: -4, borderColor: "var(--accent)" }}
+              whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.25 }}
               className="flex flex-col gap-3.5 border-l border-border px-6 py-7"
             >
@@ -449,6 +452,7 @@ export function OnTheField() {
             <Reveal key={sport.title} delay={i * 0.08}>
               <motion.div
                 whileHover={{ y: -4, borderColor: "var(--accent)" }}
+                whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.25 }}
                 className={`border-t border-[#8a5a34] pt-6 ${i > 0 ? "pb-7" : ""}`}
               >
@@ -494,6 +498,7 @@ export function AboutConnect() {
                       rel="noopener noreferrer"
                       variants={revealItem}
                       whileHover={{ y: -3 }}
+                      whileTap={{ scale: 0.97 }}
                       className={`rounded-2xl border p-4 transition-colors focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 ${
                         card.highlight
                           ? "border-accent/30 bg-accent-soft hover:border-accent"

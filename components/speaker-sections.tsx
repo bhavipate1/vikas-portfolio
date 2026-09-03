@@ -120,6 +120,7 @@ export function SpeakerEngagements() {
               key={item.title}
               variants={revealItem}
               whileHover={{ x: 6 }}
+              whileTap={{ scale: 0.99 }}
               transition={{ duration: 0.2 }}
               className={`group flex items-center gap-5 py-5 text-paper-foreground transition-colors duration-300 ease-out hover:bg-paper-surface ${
                 i === 0 ? "-mx-5 rounded-xl bg-paper-surface px-5 sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10" : "-mx-5 rounded-xl px-5 sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10"
@@ -181,7 +182,7 @@ export function SpeakerVideos() {
 
         <RevealGroup className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2" stagger={0.08}>
           {speaker.videos.items.map((video) => (
-            <motion.div key={video.title} variants={revealItem} whileHover={{ y: -4 }}>
+            <motion.div key={video.title} variants={revealItem} whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }}>
               <TiltCard className="group overflow-hidden border border-paper-border bg-paper-surface">
                 <div className="relative">
                   <Photo src={video.image} alt={video.title} className="aspect-[16/9]" light />
@@ -198,6 +199,7 @@ export function SpeakerVideos() {
                   <span className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/20">
                     <motion.span
                       whileHover={{ scale: 1.08 }}
+                      whileTap={{ scale: 0.92 }}
                       className="flex h-[66px] w-[66px] items-center justify-center rounded-full bg-accent text-accent-foreground shadow-lg"
                     >
                       <svg viewBox="0 0 24 24" fill="currentColor" className="ml-0.5 h-[22px] w-[22px]">
@@ -252,6 +254,7 @@ export function SpeakerFormats() {
                 key={format.title}
                 variants={revealItem}
                 whileHover={{ y: -4, borderColor: "var(--accent)" }}
+                whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.25 }}
                 className="border border-border bg-surface"
               >
@@ -335,6 +338,7 @@ export function SpeakerContact() {
                       rel="noopener noreferrer"
                       variants={revealItem}
                       whileHover={{ y: -3 }}
+                      whileTap={{ scale: 0.97 }}
                       className={`rounded-2xl border px-12 py-4 transition-colors focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 ${
                         field.highlight
                           ? "border-accent/30 bg-accent-soft hover:border-accent"

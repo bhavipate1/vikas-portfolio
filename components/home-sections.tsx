@@ -150,7 +150,7 @@ export function SpeakAbout() {
           {home.speakAbout.topics.map((topic, i) => {
             const TopicIcon = statIcons[topic.icon as keyof typeof statIcons];
             return (
-            <motion.div key={topic.title} variants={revealItem} whileHover={{ y: -4 }} className="group">
+            <motion.div key={topic.title} variants={revealItem} whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }} className="group">
               <TiltCard
                 className="overflow-hidden border border-paper-border bg-paper-surface p-8 text-paper-foreground transition-colors duration-300 ease-out hover:border-transparent hover:bg-surface-2 hover:text-foreground sm:p-[37px]"
               >
@@ -299,6 +299,7 @@ export function InTheRoom() {
               <span className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/20">
                 <motion.span
                   whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.92 }}
                   className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-lg"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="ml-0.5 h-5 w-5">
@@ -393,6 +394,7 @@ export function Formats() {
               key={format.title}
               variants={revealItem}
               whileHover={{ y: -4 }}
+              whileTap={{ scale: 0.98 }}
               className="group relative flex flex-col overflow-hidden border border-paper-border bg-paper-surface p-[34px] text-paper-foreground transition-colors duration-300 ease-out hover:border-border hover:bg-background hover:text-foreground"
             >
               <span
@@ -461,6 +463,7 @@ export function Perspectives() {
               key={article.title}
               variants={revealItem}
               whileHover={{ y: -4 }}
+              whileTap={{ scale: 0.98 }}
               className="overflow-hidden border border-paper-border bg-paper-surface"
             >
               <div className="relative">

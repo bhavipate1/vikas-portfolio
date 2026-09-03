@@ -149,6 +149,7 @@ export function ArticleArchive() {
               key={article.title}
               variants={revealItem}
               whileHover={{ y: -4 }}
+              whileTap={{ scale: 0.98 }}
               layout
               className="block h-full overflow-hidden border border-paper-border bg-paper-surface"
             >

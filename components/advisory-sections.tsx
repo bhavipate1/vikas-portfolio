@@ -309,6 +309,7 @@ export function AdvisoryOffers() {
                 type="button"
                 variants={revealItem}
                 whileHover={{ y: -3 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => {
                   setTier(offer.title);
                   scrollToRequestForm();
@@ -474,7 +475,7 @@ export function AdvisoryPrinciples() {
 
           <RevealGroup className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2" stagger={0.06}>
             {advisory.principles.items.map((item) => (
-              <motion.div key={item.title} variants={revealItem} whileHover={{ y: -3 }}>
+              <motion.div key={item.title} variants={revealItem} whileHover={{ y: -3 }} whileTap={{ scale: 0.98 }}>
                 <TiltCard className="border border-border bg-surface p-6 transition-colors duration-300 ease-out hover:border-accent/40 hover:bg-surface-2">
                   <h3 className="text-base font-normal">{item.title}</h3>
                   <p className="mt-2 text-sm text-muted">{item.body}</p>

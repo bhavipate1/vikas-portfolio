@@ -43,6 +43,7 @@ export function PhotoReveal({
         initial={reduceMotion ? false : { scale: 1.22 }}
         whileInView={{ scale: 1 }}
         whileHover={reduceMotion ? undefined : { scale: 1.04 }}
+        whileTap={reduceMotion ? undefined : { scale: 1.02 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: reduceMotion ? 0.01 : 1.4, delay, ease: [0.22, 1, 0.36, 1] }}
         className="absolute inset-0"
