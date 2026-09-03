@@ -429,21 +429,19 @@ export function AdvisoryPartners() {
 
         <RevealGroup className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
           {advisory.partners.items.map((item) => (
-            <motion.div
-              key={item.tag}
-              variants={revealItem}
-              className="overflow-hidden border border-paper-border bg-paper-surface"
-            >
-              <Photo src={item.image} alt={item.org} className="aspect-[435/190]" light />
-              <div className="p-6">
-                <span className="text-[11px] font-normal uppercase tracking-wide text-[#8a5a34]">{item.tag}</span>
-                <h3 className="mt-2 text-lg font-normal text-paper-foreground">{item.org}</h3>
-                <p className="mt-2 text-sm text-paper-muted">{item.description}</p>
-                <p className="mt-4 flex items-center gap-1.5 border-t border-paper-border pt-4 text-xs text-[#8a5a34]">
-                  {item.status}
-                  <ArrowUpRightIcon className="h-3.5 w-3.5" />
-                </p>
-              </div>
+            <motion.div key={item.tag} variants={revealItem} whileHover={{ y: -4 }} transition={{ duration: 0.2 }}>
+              <TiltCard className="overflow-hidden border border-paper-border bg-paper-surface transition-colors duration-300 ease-out hover:border-[#8a5a34]/40">
+                <Photo src={item.image} alt={item.org} className="aspect-[435/190]" light />
+                <div className="p-6">
+                  <span className="text-[11px] font-normal uppercase tracking-wide text-[#8a5a34]">{item.tag}</span>
+                  <h3 className="mt-2 text-lg font-normal text-paper-foreground">{item.org}</h3>
+                  <p className="mt-2 text-sm text-paper-muted">{item.description}</p>
+                  <p className="mt-4 flex items-center gap-1.5 border-t border-paper-border pt-4 text-xs text-[#8a5a34]">
+                    {item.status}
+                    <ArrowUpRightIcon className="h-3.5 w-3.5" />
+                  </p>
+                </div>
+              </TiltCard>
             </motion.div>
           ))}
         </RevealGroup>
