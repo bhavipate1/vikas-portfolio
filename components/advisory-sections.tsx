@@ -37,7 +37,7 @@ export function AdvisoryHero() {
   const [heroTopic, setHeroTopic] = useState<string | null>(null);
 
   return (
-    <section className="relative overflow-hidden pb-10 pt-28 sm:pt-32 lg:min-h-[85vh] lg:flex lg:flex-col lg:justify-center">
+    <section className="relative overflow-hidden pt-28 sm:pt-32 lg:min-h-[85vh] lg:flex lg:flex-col lg:justify-center">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
