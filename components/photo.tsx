@@ -8,6 +8,7 @@ export function Photo({
   light = false,
   priority = false,
   objectPosition,
+  imgClassName = "",
 }: {
   src?: string;
   alt?: string;
@@ -16,6 +17,8 @@ export function Photo({
   light?: boolean;
   priority?: boolean;
   objectPosition?: string;
+  /** Extra classes on the <img> itself — use for responsive object-position. */
+  imgClassName?: string;
 }) {
   if (src) {
     return (
@@ -25,7 +28,7 @@ export function Photo({
           alt={alt}
           fill
           sizes="(min-width: 1024px) 50vw, 100vw"
-          className="object-cover"
+          className={`object-cover ${imgClassName}`}
           style={objectPosition ? { objectPosition } : undefined}
           priority={priority}
         />

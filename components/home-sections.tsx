@@ -209,8 +209,9 @@ export function AboutTeaser() {
           delay={0.1}
           from="right"
           vignette={false}
-          style={{ aspectRatio: "697 / 560" }}
-          className="w-full border border-paper-border"
+          // Taller box on phones so this portrait photo isn't cropped to a sliver;
+          // the designer's 697x560 landscape ratio is kept from sm upward.
+          className="aspect-[4/5] w-full border border-paper-border sm:aspect-[697/560]"
           caption={
             <>
               <div
@@ -235,7 +236,13 @@ export function AboutTeaser() {
             </>
           }
         >
-          <Photo src="/images/home/about-teaser.jpg" alt="Vikas Surani at IIM Ahmedabad" className="h-full w-full" />
+          <Photo
+            src="/images/home/about-teaser.jpg"
+            alt="Vikas Surani at IIM Ahmedabad"
+            className="h-full w-full"
+            // Bias the crop slightly downward on phones so he sits above the stats bar.
+            imgClassName="object-[50%_58%] sm:object-[50%_50%]"
+          />
         </PhotoReveal>
       </div>
     </section>
