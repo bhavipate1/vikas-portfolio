@@ -126,7 +126,10 @@ export function SpeakerEngagements() {
                 i === 0 ? "-mx-5 rounded-xl bg-paper-surface px-5 sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10" : "-mx-5 rounded-xl px-5 sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10"
               }`}
             >
-              <span className="mr-5 text-xs font-normal tabular-nums text-paper-muted">
+              {/* Fixed width: the body sets font-feature-settings, which stops
+                  `tabular-nums` from applying, so digits are proportional and
+                  "01" vs "04" would otherwise shift each title by a few px. */}
+              <span className="mr-5 w-5 shrink-0 text-xs font-normal tabular-nums text-paper-muted">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div className="flex-1">
