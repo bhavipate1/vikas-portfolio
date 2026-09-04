@@ -122,7 +122,7 @@ export function SpeakerEngagements() {
               whileHover={{ x: 6 }}
               whileTap={{ scale: 0.99 }}
               transition={{ duration: 0.2 }}
-              className={`group flex items-center gap-5 py-5 text-paper-foreground transition-colors duration-300 ease-out hover:bg-paper-surface ${
+              className={`group flex items-center gap-5 py-5 text-paper-foreground transition-colors duration-300 ease-out hover:bg-paper-surface active:bg-paper-surface ${
                 i === 0 ? "-mx-5 rounded-xl bg-paper-surface px-5 sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10" : "-mx-5 rounded-xl px-5 sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10"
               }`}
             >
@@ -138,12 +138,12 @@ export function SpeakerEngagements() {
               </div>
               <span
                 className={`hidden shrink-0 rounded-full px-3 py-1 text-[11px] font-normal uppercase tracking-wide transition-colors duration-300 sm:inline-flex ${
-                  i === 0 ? "bg-[#8a5a34] text-white" : "border border-paper-border text-[#8a5a34] group-hover:border-[#8a5a34]"
+                  i === 0 ? "bg-[#8a5a34] text-white" : "border border-paper-border text-[#8a5a34] group-hover:border-[#8a5a34] group-active:border-[#8a5a34]"
                 }`}
               >
                 {item.tag}
               </span>
-              <ArrowUpRightIcon className="h-4 w-4 shrink-0 text-[#8a5a34] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRightIcon className="h-4 w-4 shrink-0 text-[#8a5a34] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-active:translate-x-0.5 group-active:-translate-y-0.5" />
             </motion.div>
           ))}
         </RevealGroup>
