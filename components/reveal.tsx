@@ -138,7 +138,16 @@ export function RevealWords({
   return (
     <span className={`break-words ${className ?? ""}`} aria-label={text}>
       {words.map((word, i) => (
-        <span key={i} className="inline-block overflow-hidden pb-[0.1em] align-bottom" aria-hidden>
+        // Word gap via margin, not a trailing space character: each word sits
+        // alone in a single-line inline-block (needed for the clip-mask
+        // reveal), and browsers trim trailing whitespace at the end of an
+        // inline box's own line when sizing it — so a " " character here
+        // contributed zero width and the words rendered with no visible gap.
+        <span
+          key={i}
+          className={`inline-block overflow-hidden pb-[0.1em] align-bottom ${i < words.length - 1 ? "mr-[0.25em]" : ""}`}
+          aria-hidden
+        >
           <motion.span
             className="inline-block"
             initial={{ y: reduceMotion ? 0 : "110%", opacity: reduceMotion ? 1 : 0 }}
@@ -150,7 +159,6 @@ export function RevealWords({
             }}
           >
             {word}
-            {i < words.length - 1 ? " " : ""}
           </motion.span>
         </span>
       ))}
