@@ -5,10 +5,18 @@ import { useRef, type CSSProperties, type ReactNode } from "react";
 
 /**
  * Signature image-reveal used across every hero/feature photo on the site:
- * a clip-path curtain wipe, a slow zoom-out, and a grayscale-to-color bloom
- * that lands just after the wipe completes — so the photo arrives and then
- * comes alive, rather than just fading in flat. Caption content rides along
- * with the wipe (clipped, not scaled/filtered) so text stays crisp.
+ * a clip-path curtain wipe, a slow zoom-out, and a dark tint that fades away
+ * just after the wipe completes — so the photo arrives and then comes alive,
+ * rather than just fading in flat. Caption content rides along with the wipe
+ * (clipped, not scaled) so text stays crisp.
+ *
+ * The "comes alive" beat used to be an animated `filter` (grayscale → color).
+ * Animating `filter` forces the browser to repaint every frame instead of just
+ * compositing — one of the most common causes of janky scroll animations on
+ * phones, even when it looks perfectly smooth on a fast desktop. Replaced with
+ * an opacity fade on a plain tint overlay: opacity is the cheapest property to
+ * animate (compositor-only, no repaint), so this keeps the same visual beat at
+ * a fraction of the render cost, on any device.
  *
  * Driven by its own `useInView` observer with an explicit `animate` prop rather
  * than `whileInView`: nested inside another motion component, `whileInView`
@@ -54,23 +62,15 @@ export function PhotoReveal({
         transition={{ duration: reduceMotion ? 0.01 : 1.4, delay, ease: [0.22, 1, 0.36, 1] }}
         className="absolute inset-0"
       >
-        <motion.div
-          initial={reduceMotion ? false : { filter: "grayscale(1) saturate(0.6) brightness(0.92)" }}
-          animate={
-            reduceMotion
-              ? undefined
-              : {
-                  filter: inView
-                    ? "grayscale(0) saturate(1) brightness(1)"
-                    : "grayscale(1) saturate(0.6) brightness(0.92)",
-                }
-          }
-          transition={{ duration: reduceMotion ? 0.01 : 1.1, delay: delay + 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="h-full w-full"
-        >
-          {children}
-        </motion.div>
+        {children}
       </motion.div>
+      <motion.div
+        aria-hidden
+        initial={reduceMotion ? false : { opacity: 0.55 }}
+        animate={reduceMotion ? undefined : { opacity: inView ? 0 : 0.55 }}
+        transition={{ duration: reduceMotion ? 0.01 : 1.1, delay: delay + 0.35, ease: [0.22, 1, 0.36, 1] }}
+        className="pointer-events-none absolute inset-0 bg-background"
+      />
       {vignette && (
         <div
           aria-hidden
