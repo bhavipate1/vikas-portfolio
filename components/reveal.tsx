@@ -108,20 +108,17 @@ export function RevealGroup({
 }
 
 // `revealItem` is a plain exported object (28 card grids pass it as
-// `variants={revealItem}`), so it can't call the `useIsPhone` hook `Reveal`
-// uses. Instead read the viewport once at module load — real phones load the
-// page at phone width already, so this needs no reactivity to catch them; it
-// just won't update if a desktop window is later resized narrow.
-const isPhoneAtLoad = typeof window !== "undefined" && window.matchMedia("(max-width: 639px)").matches;
-
+// `variants={revealItem}`), unlike `Reveal` it isn't a component and can't use
+// the `useIsPhone` hook. An earlier version read `window.matchMedia` at module
+// load to boost it on phones, but that value differs between the server (no
+// `window`, always "desktop") and an actual phone client — React hydration
+// then finds mismatched inline styles between server and client HTML and
+// throws. Kept as one fixed set of values, safe on both render passes; the
+// phone-specific boost lives only in `Reveal`, which defers it to a post-mount
+// effect instead of baking it into the first render.
 export const revealItem: Variants = {
-  hidden: { opacity: 0, y: isPhoneAtLoad ? 36 : 20, scale: isPhoneAtLoad ? 0.97 : 1 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: isPhoneAtLoad ? 0.7 : 0.5, ease: [0.22, 1, 0.36, 1] },
-  },
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
 };
 
 export function RevealWords({
