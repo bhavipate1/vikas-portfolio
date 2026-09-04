@@ -70,6 +70,7 @@ export function WriteHero() {
         <PhotoReveal
           delay={0.2}
           from="right"
+          eager
           style={{ aspectRatio: "6 / 5" }}
           className="w-full border border-border bg-surface-2"
           caption={

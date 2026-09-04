@@ -22,6 +22,18 @@ import { useRef, type CSSProperties, type ReactNode } from "react";
  * than `whileInView`: nested inside another motion component, `whileInView`
  * gets hijacked by the parent and can never resolve — which left photos
  * permanently clipped (rendering as blank dark boxes).
+ *
+ * Pass `eager` for a photo that's guaranteed to be above the fold on load
+ * (every page's hero image — the ones also marked `priority` on the inner
+ * `Photo`). Those don't need scroll-triggered detection at all: they're
+ * already visible the instant the page mounts. Gating them on an
+ * IntersectionObserver adds a race with no upside — if that observer's first
+ * callback doesn't land before the element settles into its final position
+ * (which is common for content that starts at the very top of the page,
+ * since there's no subsequent scroll to re-trigger it), `inView` sticks at
+ * false forever and the photo stays permanently clipped. `eager` skips the
+ * observer and just animates on mount, the same way the rest of the hero
+ * (headline, badges) already does.
  */
 export function PhotoReveal({
   children,
@@ -31,6 +43,7 @@ export function PhotoReveal({
   delay = 0,
   from = "left",
   vignette = true,
+  eager = false,
 }: {
   children: ReactNode;
   caption?: ReactNode;
@@ -39,10 +52,12 @@ export function PhotoReveal({
   delay?: number;
   from?: "left" | "right";
   vignette?: boolean;
+  eager?: boolean;
 }) {
   const reduceMotion = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px 0px -60px 0px" });
+  const observedInView = useInView(ref, { once: true, margin: "-60px 0px -60px 0px" });
+  const inView = eager || observedInView;
   const clipHidden = from === "left" ? "inset(0 0 0 100%)" : "inset(0 100% 0 0)";
 
   return (

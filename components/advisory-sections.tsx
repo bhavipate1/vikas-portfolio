@@ -83,6 +83,7 @@ export function AdvisoryHero() {
         <PhotoReveal
           delay={0.2}
           from="right"
+          eager
           className="aspect-[616/568] w-full border border-border"
           caption={
             <div className="absolute inset-x-4 bottom-4 border border-white/15 bg-background/75 px-6 py-5 backdrop-blur-sm">

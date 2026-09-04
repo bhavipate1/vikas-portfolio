@@ -108,7 +108,7 @@ export function Hero() {
         </div>
 
         <div className="relative min-h-[50vh] lg:min-h-0">
-          <PhotoReveal delay={0.15} from="right" className="absolute inset-0 h-full w-full">
+          <PhotoReveal delay={0.15} from="right" eager className="absolute inset-0 h-full w-full">
             <Photo src="/images/home/hero-bg.jpg" alt="Vikas Surani speaking on a panel" className="h-full w-full" priority />
           </PhotoReveal>
           <div

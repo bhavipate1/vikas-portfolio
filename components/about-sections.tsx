@@ -58,6 +58,7 @@ export function AboutHero() {
         <PhotoReveal
           delay={0.2}
           from="right"
+          eager
           className="aspect-[635/600] w-full border border-border"
           caption={
             <div

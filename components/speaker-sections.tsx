@@ -65,7 +65,7 @@ export function SpeakerHero() {
           </Reveal>
         </div>
 
-        <PhotoReveal delay={0.2} from="right" className="aspect-[922/663] w-full border border-border">
+        <PhotoReveal delay={0.2} from="right" eager className="aspect-[922/663] w-full border border-border">
           <Photo src="/images/speaker/hero.jpg" alt="Vikas Surani speaking at TEDx" className="h-full w-full" priority />
         </PhotoReveal>
       </div>
