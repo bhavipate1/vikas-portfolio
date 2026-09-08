@@ -102,7 +102,7 @@ export const home = {
     subtitle: "TEDx talks, conference keynotes, panels, university sessions and closed-door leadership forums.",
   },
   quote: {
-    text: "AI doesn't transform a business. Leaders who are willing to change how the work is done — with AI in their hands — do.",
+    text: "AI doesn't transform a business. Leaders who are willing to change how the work is done with AI in their hands do.",
     watchLabel: "Watch the talk · 14 min",
     stats: [
       { value: "20+", label: "Years in tech" },
@@ -249,7 +249,6 @@ export const about = {
       { title: "Simple beats clever", body: "If the room cannot repeat it back in one sentence, it is not a strategy yet — it is a diagram." },
     ],
   },
-  certsNote: "Certifications and executive programmes to be listed here — send me the list.",
   education: {
     eyebrow: "Where I learned it",
     title: "Education, and the parts that stuck",

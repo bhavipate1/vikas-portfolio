@@ -22,7 +22,7 @@ function PaperEyebrow({ children }: { children: ReactNode }) {
 
 export function AboutHero() {
   return (
-    <section className="relative overflow-hidden pb-2 pt-28 sm:pt-32 lg:min-h-[85vh] lg:flex lg:flex-col lg:justify-center">
+    <section className="relative overflow-hidden pb-10 pt-28 sm:pb-12 sm:pt-32 lg:min-h-[85vh] lg:flex lg:flex-col lg:justify-center">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
@@ -90,14 +90,18 @@ export function AboutHero() {
 
 export function AboutStats() {
   return (
-    <section className="border-y border-overlay-border bg-background py-12">
+    <section className="border-y border-overlay-border bg-background py-0">
       <RevealGroup className="mx-auto grid max-w-8xl grid-cols-2 gap-8 px-5 sm:grid-cols-4 sm:gap-0 sm:px-8 lg:px-10">
         {about.stats.map((stat, i) => (
           <motion.div
             key={stat.label}
             variants={revealItem}
             className={`py-8 ${
-              i === about.stats.length - 1 ? "pl-7 pt-8 pb-14" : i === 0 ? "pr-8" : "pl-7 pr-8"
+              i === about.stats.length - 1
+                ? "sm:pl-7 sm:pt-8 sm:pb-14"
+                : i === 0
+                  ? "sm:border-r sm:border-overlay-border sm:pr-8"
+                  : "sm:border-r sm:border-overlay-border sm:pl-7 sm:pr-8"
             }`}
           >
             <CountUp value={stat.value} className="text-3xl font-semibold text-accent tabular-nums sm:text-4xl" />
@@ -141,7 +145,7 @@ export function AboutIntro() {
             {about.thenNow.map((block, i) => (
               <Reveal key={block.label} delay={i * 0.1}>
                 <PaperEyebrow>{block.label}</PaperEyebrow>
-                <p className="mt-3.5 text-sm leading-relaxed text-paper-muted sm:text-base">{block.body}</p>
+                <p className="mt-3.5 text-sm leading-relaxed text-[#574e46] sm:text-base">{block.body}</p>
               </Reveal>
             ))}
           </div>
@@ -153,7 +157,7 @@ export function AboutIntro() {
 
 export function EducationSection() {
   return (
-    <section className="border-y border-paper-border bg-paper pt-6 pb-12 sm:pt-8 sm:pb-14">
+    <section className="border-y border-paper-border bg-paper pt-6 pb-12 sm:pt-20 sm:pb-14">
       <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-10">
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <Reveal>
@@ -168,7 +172,7 @@ export function EducationSection() {
         </div>
 
         <Reveal delay={0.15} className="relative mt-10 flex items-center">
-          <span aria-hidden className="h-px w-full bg-paper-border" />
+          <span aria-hidden className="h-0 w-full border-t border-dashed border-[#8a5a34]/30" />
           <span className="absolute left-0 h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
           <span className="absolute left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-accent" aria-hidden />
           <span className="absolute right-0 h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
@@ -176,20 +180,22 @@ export function EducationSection() {
 
         <RevealGroup className="grid grid-cols-1 gap-6 sm:grid-cols-3" stagger={0.06}>
           {about.education.items.map((item, i) => (
-            <motion.div key={item.org} variants={revealItem} whileHover={{ y: -3 }} whileTap={{ scale: 0.98 }} transition={{ duration: 0.25 }}>
-              <TiltCard className="overflow-hidden border border-paper-border px-8 pt-9 pb-8">
+            <motion.div key={item.org} variants={revealItem} whileHover={{ y: -3 }} whileTap={{ scale: 0.98 }} transition={{ duration: 0.25 }} className="h-full">
+              <TiltCard className="flex h-full min-h-[368px] flex-col justify-between overflow-hidden border border-[#1a1714]/10 bg-[#fbf9f6] px-8 pt-9 pb-8">
                 <span
                   aria-hidden
-                  className="pointer-events-none absolute -top-6 left-1/2 -translate-x-1/2 select-none font-heading text-8xl font-semibold leading-none text-[#8a5a34]/5"
+                  className="pointer-events-none absolute -top-6 right-6 select-none font-heading text-[130px] font-semibold leading-none text-[#8a5a34]/[0.07]"
                 >
                   {romanNumerals[about.education.items.length - 1 - i]}
                 </span>
-                <span className="relative inline-block rounded-[3px] bg-[#8a5a34] px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-white">
+                <span className="relative inline-block rounded-[3px] bg-[#8a5a34] px-3 py-1.5 text-[11px] font-normal uppercase tracking-[2.2px] text-[#fbf9f6]">
                   {item.tag}
                 </span>
-                <h3 className="relative mt-7 text-lg font-normal text-paper-foreground">{item.org}</h3>
-                <p className="relative mt-1 text-xs text-paper-muted">{item.program}</p>
-                <p className="relative mt-5 text-sm text-paper-muted">{item.body}</p>
+                <h3 className="relative mt-7 text-[26px] font-normal text-paper-foreground">{item.org}</h3>
+                <p className="relative mt-1 text-[14.5px] text-[#8a5a34]">{item.program}</p>
+                <p className="relative mt-5 border-t border-[#1a1714]/10 pt-[21px] text-sm text-[#6b6058]">
+                  {item.body}
+                </p>
               </TiltCard>
             </motion.div>
           ))}
@@ -213,17 +219,11 @@ export function EducationSection() {
               objectPosition="5% center"
             />
           </PhotoReveal>
-          <div className="flex flex-1 flex-col justify-center px-8 py-10 sm:px-12 sm:py-12">
+          <div className="flex flex-1 flex-col justify-center px-8 py-10 sm:px-12 sm:py-20">
             <p className="text-balance text-2xl font-light leading-snug tracking-tight text-foreground sm:text-3xl">
               {about.beyondDegrees.body}
             </p>
             <p className="mt-5 text-sm text-muted sm:text-base">{about.beyondDegrees.meta}</p>
-            <p className="mt-5 flex items-center gap-2 border-t border-white/15 pt-4 text-xs text-muted">
-              <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-white/25 text-[10px]">
-                i
-              </span>
-              {about.certsNote}
-            </p>
           </div>
         </Reveal>
       </div>
@@ -376,7 +376,7 @@ export function OtherHalf() {
         </Reveal>
 
         <div className="mt-6 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
-          <Reveal delay={0.05} className="border border-border p-6 sm:p-9">
+          <Reveal delay={0.05} className="border border-overlay-border bg-overlay-soft p-6 sm:p-9">
             <span className="flex h-11 w-11 items-center justify-center rounded-full bg-accent-soft text-accent">
               <BookIcon className="h-5 w-5" />
             </span>
@@ -389,7 +389,7 @@ export function OtherHalf() {
               {about.otherHalf.reader.stats.map((stat) => (
                 <div key={stat.label}>
                   <CountUp value={stat.value} className="text-2xl font-semibold text-accent tabular-nums" />
-                  <div className="mt-1 text-xs text-muted">{stat.label}</div>
+                  <div className="mt-1 text-xs text-overlay-muted">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -403,7 +403,7 @@ export function OtherHalf() {
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/95 to-transparent p-6">
                 <span className="text-3xl leading-none text-accent">&ldquo;</span>
                 <p className="mt-1 text-lg font-normal leading-snug text-balance">{about.otherHalf.quote.text}</p>
-                <p className="mt-2 text-xs text-muted">{about.otherHalf.quote.meta}</p>
+                <p className="mt-2 text-xs text-[#9a8f84]">{about.otherHalf.quote.meta}</p>
               </div>
             }
           >
@@ -419,11 +419,11 @@ export function OtherHalf() {
               whileHover={{ y: -4, borderColor: "var(--accent)" }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.25 }}
-              className="flex flex-col gap-3.5 border-l border-border px-6 py-7"
+              className="flex flex-col gap-3.5 border border-overlay-border bg-overlay-soft px-6 py-7"
             >
               <span className="text-xs font-normal uppercase tracking-wide text-accent">{fact.tag}</span>
               <h3 className="text-xl font-normal">{fact.title}</h3>
-              <p className="text-sm text-muted">{fact.body}</p>
+              <p className="text-sm text-[#9a8f84]">{fact.body}</p>
             </motion.div>
           ))}
         </RevealGroup>
@@ -473,11 +473,11 @@ const connectIcons = { Email: MailIcon, Mobile: PhoneIcon, LinkedIn: LinkedInIco
 
 export function AboutConnect() {
   return (
-    <section className="bg-paper pt-9 pb-0 sm:pt-10">
+    <section className="bg-paper pt-9 pb-14 sm:pt-10 sm:pb-16">
       <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-10">
-        <div className="bg-background p-6 sm:p-10 lg:px-14 lg:py-16">
-          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
-            <div>
+        <div className="bg-background p-6 sm:p-10 lg:p-0">
+          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-stretch lg:gap-16">
+            <div className="lg:py-16 lg:pl-14">
               <Reveal>
                 <span className="text-xs font-medium uppercase tracking-[0.18em] text-muted">
                   {about.connect.eyebrow}
@@ -500,22 +500,34 @@ export function AboutConnect() {
                       variants={revealItem}
                       whileHover={{ y: -3 }}
                       whileTap={{ scale: 0.97 }}
-                      className={`rounded-2xl border p-4 transition-colors focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 ${
+                      className={`flex h-16 items-center gap-3 rounded-md border px-4 transition-colors focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 ${
                         card.highlight
                           ? "border-accent/30 bg-accent-soft hover:border-accent"
-                          : "border-border bg-surface hover:border-accent"
+                          : "border-[#f4ede3]/20 bg-[#f4ede3]/5 hover:border-accent"
                       }`}
                     >
-                      <Icon className="h-4 w-4 text-accent" />
-                      <div className="mt-3 text-[11px] font-semibold uppercase tracking-wide text-muted">{card.label}</div>
-                      <div className="mt-1 text-sm font-medium text-foreground">{card.value}</div>
+                      <Icon className="h-4 w-4 shrink-0 text-accent" />
+                      <div className="min-w-0">
+                        <div className="text-[11px] font-semibold uppercase tracking-wide text-muted">{card.label}</div>
+                        <div className="mt-1 truncate text-sm font-medium text-foreground">{card.value}</div>
+                      </div>
                     </motion.a>
                   );
                 })}
               </RevealGroup>
             </div>
 
-            <PhotoReveal delay={0.15} from="right" className="aspect-[4/3] w-full border border-border">
+            <PhotoReveal
+              delay={0.15}
+              from="right"
+              className="aspect-[4/3] w-full border border-border lg:aspect-auto lg:h-full lg:border-0"
+              caption={
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-r from-background via-background/30 to-transparent"
+                />
+              }
+            >
               <Photo src="/images/about/other-half.jpg" alt="Vikas Surani in the audience with family" className="h-full w-full" />
             </PhotoReveal>
           </div>

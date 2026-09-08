@@ -137,7 +137,7 @@ export function LogoStrip() {
 
 export function SpeakAbout() {
   return (
-    <section className="bg-paper pt-16 pb-0">
+    <section className="bg-paper pt-20 pb-0">
       <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-10">
         <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow light>{home.speakAbout.eyebrow}</Eyebrow>
@@ -150,9 +150,9 @@ export function SpeakAbout() {
           {home.speakAbout.topics.map((topic, i) => {
             const TopicIcon = statIcons[topic.icon as keyof typeof statIcons];
             return (
-            <motion.div key={topic.title} variants={revealItem} whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }} className="group">
+            <motion.div key={topic.title} variants={revealItem} whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }} className="group h-full">
               <TiltCard
-                className="overflow-hidden border border-paper-border bg-paper-surface p-8 text-paper-foreground transition-colors duration-300 ease-out hover:border-transparent hover:bg-surface-2 hover:text-foreground sm:p-[37px]"
+                className="flex h-full min-h-[300px] flex-col overflow-hidden border border-paper-border bg-paper-surface p-8 text-paper-foreground transition-colors duration-300 ease-out hover:border-transparent hover:bg-surface-2 hover:text-foreground sm:p-[37px]"
               >
                 <div className="relative flex items-center gap-[26px]">
                   <span className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-[3px] bg-[#8a5a34] text-white transition-colors duration-300 group-hover:bg-accent group-hover:text-accent-foreground">
@@ -166,19 +166,21 @@ export function SpeakAbout() {
                 <p className="relative mt-3 text-sm text-paper-muted transition-colors duration-300 group-hover:text-muted">
                   {topic.description}
                 </p>
-                <div className="mt-5 flex flex-wrap gap-2 border-t border-paper-border pt-5 transition-colors duration-300 group-hover:border-border">
-                  {topic.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full px-3 py-1 text-xs text-paper-muted outline outline-1 outline-stone-900/10 transition-colors duration-300 group-hover:text-stone-300 group-hover:outline-[#F4EDE3]/20"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div className="mt-5 flex flex-1 flex-col justify-end">
+                  <div className="flex flex-wrap gap-2 border-t border-paper-border pt-5 transition-colors duration-300 group-hover:border-border">
+                    {topic.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full px-3 py-1 text-xs text-paper-muted outline outline-1 outline-stone-900/10 transition-colors duration-300 group-hover:text-stone-300 group-hover:outline-[#F4EDE3]/20"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="relative mt-3 text-[11px] tracking-wide text-paper-muted/70 transition-opacity duration-300 group-hover:opacity-0">
+                    Sample talk titles
+                  </p>
                 </div>
-                <p className="relative mt-3 text-[11px] tracking-wide text-paper-muted/70 transition-opacity duration-300 group-hover:opacity-0">
-                  Sample talk titles
-                </p>
               </TiltCard>
             </motion.div>
             );
@@ -251,7 +253,7 @@ export function AboutTeaser() {
 
 export function FourAreas() {
   return (
-    <section className="bg-paper pb-2">
+    <section className="bg-paper pb-14 sm:pb-16">
       <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-10">
         <div className="border border-paper-border bg-paper-surface p-6 sm:px-12 sm:pt-12 sm:pb-10">
           <Reveal className="flex flex-col justify-between gap-4 pb-7 sm:flex-row sm:items-end">
@@ -359,8 +361,12 @@ export function QuoteStats() {
         <div>
           <Reveal delay={0.1}>
             <span className="text-5xl leading-none text-accent">&ldquo;</span>
-            <p className="text-balance text-2xl font-light leading-snug tracking-tight sm:text-[28px] lg:text-3xl">
-              {home.quote.text}
+            <p className="text-2xl font-light leading-snug tracking-tight sm:text-[28px] lg:text-3xl">
+              AI doesn&apos;t transform a business. Leaders
+              <br />
+              who are willing to change how the work is
+              <br />
+              done with AI in their hands do.
             </p>
             <div className="mt-9 flex items-center gap-3">
               <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full">
@@ -380,8 +386,8 @@ export function QuoteStats() {
 
 export function Formats() {
   return (
-    <section id="formats" className="scroll-mt-24 bg-paper pt-10 pb-10">
-      <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-10">
+    <section id="formats" className="scroll-mt-24 bg-paper pt-20 pb-14">
+      <div className="mx-auto w-full max-w-[1100px] px-6">
         <Reveal>
           <Eyebrow light>{home.formats.eyebrow}</Eyebrow>
         </Reveal>
@@ -443,7 +449,7 @@ export function Formats() {
 
 export function Perspectives() {
   return (
-    <section className="bg-paper pt-14 pb-0 sm:pt-16">
+    <section className="bg-paper pt-16 pb-0 sm:pt-20">
       <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-10">
         <Reveal className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
           <div>

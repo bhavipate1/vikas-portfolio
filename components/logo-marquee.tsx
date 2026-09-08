@@ -12,7 +12,7 @@ export function LogoMarquee({
   direction?: "ltr" | "rtl";
 }) {
   const reduceMotion = useReducedMotion();
-  const textClass = light ? "text-paper-muted" : "text-muted";
+  const textClass = light ? "text-paper-muted" : "text-[#c8bcb0]";
 
   if (reduceMotion) {
     return (

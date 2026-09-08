@@ -28,7 +28,7 @@ const formatIcons = { mic: MicIcon, globe: GlobeIcon, building: BuildingIcon, ca
 
 export function SpeakerHero() {
   return (
-    <section className="relative overflow-hidden pb-2 pt-28 sm:pt-32 lg:min-h-[85vh] lg:flex lg:flex-col lg:justify-center">
+    <section className="relative overflow-hidden pb-10 pt-28 sm:pb-12 sm:pt-32 lg:min-h-[85vh] lg:flex lg:flex-col lg:justify-center">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
@@ -75,10 +75,20 @@ export function SpeakerHero() {
 
 export function SpeakerStats() {
   return (
-    <section className="border-y border-overlay-border bg-background py-12">
-      <RevealGroup className="mx-auto grid max-w-8xl grid-cols-2 gap-8 px-5 sm:grid-cols-4 sm:px-8 lg:px-10">
-        {speaker.stats.map((stat) => (
-          <motion.div key={stat.label} variants={revealItem}>
+    <section className="border-y border-overlay-border bg-background py-0">
+      <RevealGroup className="mx-auto grid max-w-8xl grid-cols-2 gap-8 px-5 sm:grid-cols-4 sm:gap-0 sm:px-8 lg:px-10">
+        {speaker.stats.map((stat, i) => (
+          <motion.div
+            key={stat.label}
+            variants={revealItem}
+            className={
+              i === speaker.stats.length - 1
+                ? "sm:pl-7"
+                : i === 0
+                  ? "sm:border-r sm:border-overlay-border sm:pr-8"
+                  : "sm:border-r sm:border-overlay-border sm:pl-7 sm:pr-8"
+            }
+          >
             <CountUp value={stat.value} className="text-3xl font-semibold text-accent tabular-nums sm:text-4xl" />
             <div className="mt-1.5 max-w-[180px] text-xs leading-snug text-muted">{stat.label}</div>
           </motion.div>
@@ -100,7 +110,7 @@ export function SpeakerLogos() {
 
 export function SpeakerEngagements() {
   return (
-    <section className="bg-paper pt-8 sm:pt-10">
+    <section className="bg-paper pt-14 sm:pt-20">
       <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-10">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <Reveal>
@@ -311,11 +321,11 @@ export function SpeakerBackground() {
 
 export function SpeakerContact() {
   return (
-    <section className="bg-paper pt-12">
+    <section className="bg-paper pt-12 pb-14 sm:pb-16">
       <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-10">
-        <div className="bg-background p-6 sm:p-10 lg:p-14">
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
-            <div>
+        <div className="bg-background p-6 sm:p-10 lg:p-0">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-stretch lg:gap-16">
+            <div className="lg:py-14 lg:pl-14">
               <Reveal>
                 <Eyebrow>{speaker.contact.eyebrow}</Eyebrow>
                 <h2 className="mt-5 text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
@@ -336,24 +346,30 @@ export function SpeakerContact() {
                       variants={revealItem}
                       whileHover={{ y: -3 }}
                       whileTap={{ scale: 0.97 }}
-                      className={`rounded-2xl border px-12 py-4 transition-colors focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 ${
+                      className={`flex h-16 items-center gap-3 rounded-md border px-4 transition-colors focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 ${
                         field.highlight
                           ? "border-accent/30 bg-accent-soft hover:border-accent"
-                          : "border-border bg-surface hover:border-accent"
+                          : "border-[#f4ede3]/20 bg-[#f4ede3]/5 hover:border-accent"
                       }`}
                     >
-                      <Icon className="h-4 w-4 text-accent" />
-                      <div className="mt-3 text-[11px] font-normal uppercase tracking-wide text-muted">
-                        {field.label}
+                      <Icon className="h-4 w-4 shrink-0 text-accent" />
+                      <div className="min-w-0">
+                        <div className="text-[11px] font-normal uppercase tracking-wide text-muted">
+                          {field.label}
+                        </div>
+                        <div className="mt-1 truncate text-sm font-normal text-foreground">{field.value}</div>
                       </div>
-                      <div className="mt-1 text-sm font-normal text-foreground">{field.value}</div>
                     </motion.a>
                   );
                 })}
               </RevealGroup>
             </div>
 
-            <PhotoReveal delay={0.15} from="right" className="aspect-[612/529] w-full border border-border">
+            <PhotoReveal
+              delay={0.15}
+              from="right"
+              className="aspect-[612/529] w-full border border-border lg:aspect-auto lg:h-full lg:border-0"
+            >
               <Photo src="/images/speaker/contact.jpg" alt="Vikas Surani in conversation" className="h-full w-full" />
             </PhotoReveal>
           </div>

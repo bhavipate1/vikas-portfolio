@@ -211,7 +211,7 @@ export function ContactForm() {
     "w-full rounded-xl border bg-paper px-4 py-3 text-sm text-paper-foreground placeholder:text-xs placeholder:text-paper-muted/70 transition-colors focus:outline-none focus:ring-2 focus:ring-accent/50";
 
   return (
-    <section id="write-to-me" className="scroll-mt-24 bg-paper pt-8 pb-0 sm:pt-10">
+    <section id="write-to-me" className="scroll-mt-24 bg-paper pt-14 pb-0 sm:pt-20">
       <div className="mx-auto grid max-w-8xl grid-cols-1 gap-12 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-10">
         <Reveal>
           <Eyebrow light>{contact.formSection.eyebrow}</Eyebrow>

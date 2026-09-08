@@ -74,15 +74,26 @@ export function WriteHero() {
           style={{ aspectRatio: "6 / 5" }}
           className="w-full border border-border bg-surface-2"
           caption={
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/90 to-transparent px-8 pb-8 pt-24">
-              <span className="inline-flex items-center rounded-full bg-accent px-3 py-1 text-xs font-normal uppercase tracking-wide text-accent-foreground">
+            <div
+              className="absolute inset-0 flex flex-col justify-end px-8 pb-8"
+              style={{
+                background: "linear-gradient(180deg, rgba(22,19,15,0.15) 30%, rgba(22,19,15,0.88) 100%)",
+              }}
+            >
+              <span className="inline-flex w-fit items-center rounded-full bg-accent px-3 py-1 text-[10.5px] font-normal uppercase tracking-[1.89px] text-accent-foreground">
                 {write.featured.issue}
               </span>
-              <h2 className="mt-4 text-3xl font-normal leading-snug text-foreground">{write.featured.title}</h2>
-              <p className="mt-5 text-sm text-foreground/70">{write.featured.body}</p>
-              <div className="mt-7 flex items-center justify-between gap-4 border-t border-foreground/15 pt-7">
-                <span className="text-xs text-foreground/60">{write.featured.meta}</span>
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-foreground/30 text-foreground">
+              <h2 className="mt-4 text-3xl font-normal leading-snug text-[#f4ede3]">
+                The year every company
+                <br />
+                became an AI company —
+                <br />
+                and what that cost them
+              </h2>
+              <p className="mt-5 text-sm text-[#b8ada1]">{write.featured.body}</p>
+              <div className="mt-7 flex items-center justify-between gap-4 border-t border-[#f4ede3]/[0.22] pt-7">
+                <span className="text-xs text-[#9a8f84]">{write.featured.meta}</span>
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#f4ede3]/40 text-[#f4ede3]">
                   <ArrowUpRightIcon className="h-4 w-4" />
                 </span>
               </div>

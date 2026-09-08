@@ -170,7 +170,7 @@ export function AdvisoryHowItWorks() {
 export function AdvisoryImpact() {
   const flow = advisory.impact.flow;
   return (
-    <section id="contributions" className="scroll-mt-24 bg-paper pt-12 sm:pt-14">
+    <section id="contributions" className="scroll-mt-24 bg-paper pt-14 sm:pt-20">
       <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-10">
         <Reveal className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
@@ -399,7 +399,7 @@ export function AdvisoryOffers() {
             >
               {advisory.contribution.ctaLabel}
             </motion.button>
-            <p className="mt-3 flex items-center justify-center gap-1.5 text-center text-xs text-muted">
+            <p className="mt-3 flex items-center justify-center gap-1.5 text-center text-xs text-overlay-muted">
               <svg viewBox="0 0 24 24" fill="none" className="h-3.5 w-3.5 shrink-0">
                 <rect x="5" y="11" width="14" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.5" />
                 <path d="M8 11V7a4 4 0 0 1 8 0v4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
