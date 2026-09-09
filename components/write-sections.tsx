@@ -183,15 +183,6 @@ export function ArticleArchive() {
         {filtered.length === 0 && (
           <p className="mt-10 text-center text-sm text-paper-muted">Nothing in this category yet.</p>
         )}
-
-        <div className="mt-12 flex justify-center">
-          <button
-            type="button"
-            className="inline-flex items-center justify-center rounded-[5px] border border-paper-border px-8 py-4 text-sm font-normal text-paper-foreground transition-all hover:-translate-y-0.5 hover:border-accent"
-          >
-            Load more writing
-          </button>
-        </div>
       </div>
     </section>
   );
@@ -208,7 +199,7 @@ export function WhyIWrite() {
         <Reveal delay={0.1}>
           <Eyebrow light>{write.whyIWrite.eyebrow}</Eyebrow>
           <span className="mt-9 block text-6xl leading-none text-paper-muted">&ldquo;</span>
-          <p className="mt-1 text-balance text-2xl font-light leading-snug tracking-tight text-paper-foreground sm:text-3xl lg:text-4xl">
+          <p className="mt-1 text-balance font-heading text-2xl font-light leading-snug tracking-tight text-paper-foreground sm:text-[27px]">
             {write.whyIWrite.quote}
           </p>
           <div className="mt-10 border-t border-paper-border pt-6">

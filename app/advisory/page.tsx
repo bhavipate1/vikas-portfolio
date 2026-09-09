@@ -29,8 +29,8 @@ export default function AdvisoryPage() {
       <AdvisoryPartners />
       <AdvisoryPrinciples />
       <Testimonials />
-      <AdvisoryForm />
       <AdvisoryFaq />
+      <AdvisoryForm />
     </AdvisoryFormProvider>
   );
 }

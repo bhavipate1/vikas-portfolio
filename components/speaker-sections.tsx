@@ -5,8 +5,6 @@ import {
   ArrowUpRightIcon,
   BuildingIcon,
   CapIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
   DownloadIcon,
   GlobeIcon,
   MailIcon,
@@ -160,37 +158,18 @@ export function SpeakerVideos() {
   return (
     <section className="bg-paper pb-12">
       <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-10">
-        <div className="flex items-end justify-between gap-6">
-          <Reveal>
-            <Eyebrow light>{speaker.videos.eyebrow}</Eyebrow>
-            <h2 className="mt-7 text-4xl font-semibold tracking-tight text-paper-foreground sm:text-5xl">
-              {speaker.videos.title}
-            </h2>
-          </Reveal>
-          <Reveal delay={0.1} className="hidden shrink-0 items-center gap-3 sm:flex">
-            <button
-              type="button"
-              aria-label="Previous talks"
-              disabled
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-paper-border text-paper-muted transition-colors disabled:opacity-40"
-            >
-              <ChevronLeftIcon className="h-4 w-4" />
-            </button>
-            <button
-              type="button"
-              aria-label="More talks"
-              disabled
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-paper-border text-paper-foreground transition-colors hover:border-accent hover:text-accent disabled:opacity-40"
-            >
-              <ChevronRightIcon className="h-4 w-4" />
-            </button>
-          </Reveal>
-        </div>
+        <Reveal>
+          <Eyebrow light>{speaker.videos.eyebrow}</Eyebrow>
+          <h2 className="mt-7 text-4xl font-semibold tracking-tight text-paper-foreground sm:text-5xl">
+            {speaker.videos.title}
+          </h2>
+        </Reveal>
 
         <RevealGroup className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2" stagger={0.08}>
-          {speaker.videos.items.map((video) => (
-            <motion.div key={video.title} variants={revealItem} whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }}>
-              <TiltCard className="group overflow-hidden border border-paper-border bg-paper-surface">
+          {speaker.videos.items.map((video) => {
+            const playable = Boolean(video.href);
+            const card = (
+              <TiltCard className={`group overflow-hidden border border-paper-border bg-paper-surface ${playable ? "cursor-pointer" : ""}`}>
                 <div className="relative">
                   <Photo src={video.image} alt={video.title} className="aspect-[16/9]" light />
                   <span
@@ -203,35 +182,44 @@ export function SpeakerVideos() {
                   <span className="absolute right-3 top-3 rounded-full bg-background/70 px-3 py-1 text-[11px] font-normal text-muted">
                     {video.duration}
                   </span>
-                  <span className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/20">
-                    <motion.span
-                      whileHover={{ scale: 1.08 }}
-                      whileTap={{ scale: 0.92 }}
-                      className="flex h-[66px] w-[66px] items-center justify-center rounded-full bg-accent text-accent-foreground shadow-lg"
-                    >
-                      <svg viewBox="0 0 24 24" fill="currentColor" className="ml-0.5 h-[22px] w-[22px]">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </motion.span>
-                  </span>
+                  {playable ? (
+                    <span className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/20">
+                      <motion.span
+                        whileHover={{ scale: 1.08 }}
+                        whileTap={{ scale: 0.92 }}
+                        className="flex h-[66px] w-[66px] items-center justify-center rounded-full bg-accent text-accent-foreground shadow-lg"
+                      >
+                        <svg viewBox="0 0 24 24" fill="currentColor" className="ml-0.5 h-[22px] w-[22px]">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </motion.span>
+                    </span>
+                  ) : (
+                    <span className="absolute bottom-3 right-3 rounded-full bg-background/70 px-3 py-1 text-[11px] font-normal text-muted">
+                      Recording available on request
+                    </span>
+                  )}
                 </div>
                 <div className="p-5">
                   <h3 className="text-lg font-normal text-paper-foreground sm:text-xl">{video.title}</h3>
                   <p className="mt-1 text-xs text-paper-muted sm:text-sm">{video.meta}</p>
                 </div>
               </TiltCard>
-            </motion.div>
-          ))}
-        </RevealGroup>
+            );
 
-        <div className="mt-8 flex items-center justify-center gap-2" aria-hidden>
-          {speaker.videos.items.map((video, i) => (
-            <span
-              key={video.title}
-              className={`h-1.5 rounded-full transition-all ${i === 0 ? "w-6 bg-accent" : "w-1.5 bg-paper-border"}`}
-            />
-          ))}
-        </div>
+            return (
+              <motion.div key={video.title} variants={revealItem} whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }}>
+                {playable ? (
+                  <a href={video.href} target="_blank" rel="noopener noreferrer" aria-label={`Watch ${video.title}`}>
+                    {card}
+                  </a>
+                ) : (
+                  card
+                )}
+              </motion.div>
+            );
+          })}
+        </RevealGroup>
       </div>
     </section>
   );

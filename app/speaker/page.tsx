@@ -23,8 +23,8 @@ export default function SpeakerPage() {
       <SpeakerLogos />
       <SpeakerEngagements />
       <SpeakerVideos />
-      <SpeakerFormats />
       <SpeakerBackground />
+      <SpeakerFormats />
       <SpeakerContact />
     </>
   );

@@ -16,11 +16,11 @@ export const site = {
 };
 
 export const nav = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Speaker", href: "/speaker" },
-  { label: "Advisory", href: "/advisory" },
-  { label: "Newsletter", href: "/write" },
+  { label: "Being Curious", href: "/" },
+  { label: "Being Leader", href: "/about" },
+  { label: "Being Speaker", href: "/speaker" },
+  { label: "Being Writer", href: "/advisory" },
+  { label: "Being Learner", href: "/write" },
 ];
 
 // ---------------------------------------------------------------- Homepage
@@ -41,7 +41,7 @@ export const home = {
   ],
   logos: ["TEDx", "Mastek", "Karnavati University", "Industry Conferences", "Government Forums", "Leadership Summits"],
   about: {
-    eyebrow: "About",
+    eyebrow: "Being Leader",
     title: "Two decades between the strategy deck and the shop floor",
     body: "Vikas leads global transformation programmes at Mastek, where technology decisions meet the messy reality of people, process and P&L. On stage, he brings the same lens: fewer slogans about the future, more of what it takes to get there.",
     link: { label: "Read the full story", href: "/about" },
@@ -171,7 +171,7 @@ export const home = {
 // ------------------------------------------------------------------ About
 
 export const about = {
-  badge: "Being curious · Newsletter",
+  badge: "Being Leader",
   headline: ["An engineer who", "stayed curious"],
   body: "I started in a small engineering college in Rajkot with no plan beyond “understand how things work.” Twenty years later that same question has taken me through forty countries, a hundred-million-dollar transformation, a TEDx stage, and a newsletter I write mostly to think.",
   ctas: [
@@ -184,7 +184,7 @@ export const about = {
     { value: "15+", label: "Years in enterprise IT consulting and transformation" },
     { value: "40+", label: "Countries where those programmes were delivered" },
     { value: "$50M+", label: "Multi-pillar transformation deals led end to end" },
-    { value: "3000+", label: "Readers of Being Curious, his newsletter" },
+    { value: "3000+", label: "Readers of Being Learner, his newsletter" },
   ],
   intro: "I've never been the smartest person in the room. I've usually been the one asking the most questions in it and that turned out to be the more useful habit.",
   thenNow: [
@@ -309,7 +309,7 @@ export const about = {
       },
       {
         tag: "Writing",
-        title: "Being Curious, biweekly",
+        title: "Being Learner, biweekly",
         body: "Half thinking tool, half public notebook. If I cannot write the idea down clearly, I do not understand it yet.",
       },
     ],
@@ -353,7 +353,7 @@ export const about = {
 // ---------------------------------------------------------------- Speaker
 
 export const speaker = {
-  badge: "Speaker profile",
+  badge: "Being Speaker",
   headline: ["Being", "curious", "on every stage"],
   body: "A speaking style that blends storytelling, strategy and on ground experience making complex ideas simple, relatable and actionable. TEDx speaker, transformation leader, Global Vice President at Mastek.",
   quote: "My mission: inspire people to embrace curiosity and lead meaningful change.",
@@ -365,7 +365,7 @@ export const speaker = {
     { value: "14+", label: "Countries where transformation programmes were delivered" },
     { value: "$50M+", label: "Multi-pillar transformation deals led" },
     { value: "20+", label: "Global forums on transformation, AI and leadership" },
-    { value: "3000+", label: "Members of Being Curious, his experiential newsletter" },
+    { value: "3000+", label: "Members of Being Learner, his experiential newsletter" },
   ],
   logos: ["United World", "Karnavati University", "Mastek", "IIM Ahmedabad", "TEDxNBS", "Global Computing Conference"],
   engagements: {
@@ -384,8 +384,8 @@ export const speaker = {
     eyebrow: "Watch",
     title: "Talks on video",
     items: [
-      { tag: "TEDx", duration: "14 min", title: "The Rise of Bharat", meta: "TEDxNBS · Narayana Business School", image: "/images/speaker/video1.jpg" },
-      { tag: "Keynote", duration: "22 min", title: "Transformation beyond the technology", meta: "Global Computing Conference · Hyderabad", image: undefined as string | undefined },
+      { tag: "TEDx", duration: "14 min", title: "The Rise of Bharat", meta: "TEDxNBS · Narayana Business School", image: "/images/speaker/video1.jpg", href: undefined as string | undefined },
+      { tag: "Keynote", duration: "22 min", title: "Transformation beyond the technology", meta: "Global Computing Conference · Hyderabad", image: undefined as string | undefined, href: undefined as string | undefined },
     ],
   },
   formats: {
@@ -408,7 +408,7 @@ export const speaker = {
       { label: "Senior management", org: "IIM Ahmedabad", meta: "Senior Management Programme" },
       { label: "MBA", org: "Ahmedabad University", meta: "Marketing & Information System Management" },
       { label: "Engineering", org: "Atmiya University, Rajkot", meta: "Bachelor of Engineering" },
-      { label: "Newsletter", org: "Being Curious", meta: "An experiential newsletter, 3000+ members" },
+      { label: "Newsletter", org: "Being Learner", meta: "An experiential newsletter, 3000+ members" },
     ],
   },
   contact: {
@@ -427,7 +427,7 @@ export const speaker = {
 // --------------------------------------------------------------- Advisory
 
 export const advisory = {
-  badge: "Advisory · 100% donated",
+  badge: "Being Writer · 100% donated",
   headline: ["Buy a conversation.", "Give back."],
   body: "Book an hour with me for advice, perspective or mentorship. I don't keep the contribution — every rupee goes to a social cause. Your conversation creates an impact beyond the conversation.",
   ctas: [
@@ -483,12 +483,12 @@ export const advisory = {
     body: "Beneficiary organisation named in advance each quarter. Every contribution is added to the total below, published openly.",
     progress: {
       raisedLabel: "raised so far",
-      goalLabel: "Goal this quarter · ₹Y",
-      note: "Placeholder figures — the real total is updated after each conversation.",
+      goalLabel: "Goal this quarter · ₹50,000",
+      note: "New this quarter — the total updates after each conversation.",
     },
     stats: [
-      { value: "XX", label: "Students supported" },
-      { value: "XX", label: "Conversations funded" },
+      { value: "0", label: "Students supported" },
+      { value: "0", label: "Conversations funded" },
       { value: "₹0", label: "Kept as a fee" },
     ],
     photoCaption: { title: "The people on the other side of the invoice", meta: "Campus sessions, Gujarat · 2026" },
@@ -499,7 +499,7 @@ export const advisory = {
       badge: "Most booked",
       description: "A single 45-minute session on one decision you want a second read on.",
       impact: "Funds one student's month of learning",
-      price: "₹X",
+      price: "₹5,000",
       priceUnit: "/ session",
     },
     {
@@ -507,7 +507,7 @@ export const advisory = {
       badge: "Flexible timing",
       description: "One to open the problem up, one a few weeks later to check the direction.",
       impact: "Funds a full term of learning",
-      price: "₹X",
+      price: "₹18,000",
       priceUnit: "/ two sessions",
     },
     {
@@ -515,7 +515,7 @@ export const advisory = {
       badge: "For founders",
       description: "Quarterly guidance for a founder or leadership team through a real transition.",
       impact: "Funds a cohort scholarship",
-      price: "₹X",
+      price: "₹75,000",
       priceUnit: "/ quarter",
     },
   ],
@@ -537,21 +537,21 @@ export const advisory = {
     items: [
       {
         tag: "Education",
-        org: "Organisation name",
+        org: "Partner to be confirmed",
         description: "What the contribution funds here — school fees, materials, a scholarship place.",
         status: "Current quarter",
         image: undefined as string | undefined,
       },
       {
         tag: "Skilling",
-        org: "Organisation name",
+        org: "Partner to be confirmed",
         description: "Vocational and digital-skills training for students without access to it.",
         status: "Previously funded",
         image: "/images/advisory/partner-skilling.jpg",
       },
       {
         tag: "Opportunity",
-        org: "Organisation name",
+        org: "Partner to be confirmed",
         description: "Mentoring and placement support for first-generation graduates.",
         status: "Shortlisted",
         image: undefined as string | undefined,
@@ -627,7 +627,7 @@ export const advisory = {
 // ------------------------------------------------------------------ Write
 
 export const write = {
-  badge: "Being curious · Newsletter",
+  badge: "Being Learner · Newsletter",
   headline: ["Thinking", "out loud"],
   body: "Newsletters, essays and half-formed ideas on AI, transformation and leadership written from inside the work, not above it.",
   subscribeNote: "One issue every other week. No pitches, no filler.",
@@ -647,7 +647,7 @@ export const write = {
     role: "Global Vice President, Mastek",
   },
   experiential: {
-    eyebrow: "Being curious",
+    eyebrow: "Being Learner",
     title: "An experiential newsletter",
     body: "3000+ leaders, operators and students read it. One issue every other week what worked, what didn't, and what I'm still unsure about.",
     stats: [
@@ -793,10 +793,10 @@ export const footer = {
   badges: ["TEDx Speaker", "Ahmedabad, India"],
   bottomNote: "Personal views, independently shared.",
   navigate: [
-    { label: "About", href: "/about" },
-    { label: "Speaker", href: "/speaker" },
-    { label: "Newsletter", href: "/write" },
-    { label: "Advisory", href: "/advisory" },
+    { label: "Being Leader", href: "/about" },
+    { label: "Being Speaker", href: "/speaker" },
+    { label: "Being Learner", href: "/write" },
+    { label: "Being Writer", href: "/advisory" },
     { label: "Contact", href: "/contact" },
   ],
 };

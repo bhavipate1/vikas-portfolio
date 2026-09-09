@@ -19,12 +19,12 @@ export default function Home() {
       <LogoStrip />
       <SpeakAbout />
       <AboutTeaser />
+      <Testimonials />
       <FourAreas />
       <InTheRoom />
       <Formats />
       <QuoteStats />
       <Perspectives />
-      <Testimonials />
       <HomeContact />
     </>
   );

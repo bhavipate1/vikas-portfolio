@@ -136,7 +136,7 @@ export function AboutIntro() {
 
         <div>
           <Reveal>
-            <p className="border-l-2 border-accent pl-9 text-balance text-[28px] font-light leading-[36px] tracking-[-1px] text-paper-foreground sm:text-[40px] sm:leading-[49.6px] sm:tracking-[-1.4px]">
+            <p className="border-l-2 border-accent pl-9 text-balance font-heading text-[28px] font-light leading-[36px] tracking-[-1px] text-paper-foreground sm:text-[40px] sm:leading-[49.6px] sm:tracking-[-1.4px]">
               {about.intro}
             </p>
           </Reveal>

@@ -242,14 +242,14 @@ export function AdvisoryCause() {
 
           <div className="mt-8">
             <div className="flex items-baseline gap-2.5">
-              <span className="font-heading text-5xl font-semibold text-accent">₹X</span>
+              <span className="font-heading text-5xl font-semibold text-accent">₹0</span>
               <span className="text-sm text-muted">{advisory.cause.progress.raisedLabel}</span>
             </div>
             <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-border/40">
               <motion.div
                 className="h-full rounded-full bg-gradient-to-r from-[#8a5a34] to-accent"
                 initial={{ width: 0 }}
-                whileInView={{ width: "33%" }}
+                whileInView={{ width: "0%" }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
               />
@@ -761,8 +761,24 @@ export function AdvisoryForm() {
 export function AdvisoryFaq() {
   const [open, setOpen] = useState<number | null>(0);
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: advisory.faq.items
+      .filter((item) => item.answer)
+      .map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: { "@type": "Answer", text: item.answer },
+      })),
+  };
+
   return (
     <section className="border-t border-paper-border bg-paper pt-12 pb-8 sm:pt-14 sm:pb-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <div className="mx-auto grid max-w-8xl grid-cols-1 gap-10 px-5 sm:px-8 lg:grid-cols-[0.4fr_1fr] lg:gap-16 lg:px-10">
         <Reveal>
           <Eyebrow light>{advisory.faq.eyebrow}</Eyebrow>

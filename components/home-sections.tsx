@@ -361,7 +361,7 @@ export function QuoteStats() {
         <div>
           <Reveal delay={0.1}>
             <span className="text-5xl leading-none text-accent">&ldquo;</span>
-            <p className="text-2xl font-light leading-snug tracking-tight sm:text-[28px] lg:text-3xl">
+            <p className="font-heading text-2xl font-light leading-snug tracking-tight sm:text-[28px] lg:text-3xl">
               AI doesn&apos;t transform a business. Leaders
               <br />
               who are willing to change how the work is
@@ -495,7 +495,7 @@ export function Perspectives() {
 
 export function Testimonials() {
   return (
-    <section className="border-t border-paper-border bg-paper pt-20 sm:pt-28">
+    <section className="border-t border-paper-border bg-paper pt-20 pb-14 sm:pt-28 sm:pb-16">
       <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-10">
         <RevealGroup className="grid grid-cols-1 gap-6 sm:grid-cols-2" stagger={0.1}>
           {home.testimonials.map((t) => (
