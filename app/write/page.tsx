@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArticleArchive, Experiential, WhyIWrite, WriteCategoryLabels, WriteHero } from "@/components/write-sections";
+import { ArticleArchive, Experiential, PodcastCards, WhyIWrite, WriteCategoryLabels, WriteHero } from "@/components/write-sections";
 
 export const metadata: Metadata = {
   title: "Write",
@@ -13,6 +13,7 @@ export default function WritePage() {
       <WriteCategoryLabels />
       <ArticleArchive />
       <WhyIWrite />
+      <PodcastCards />
       <Experiential />
     </>
   );

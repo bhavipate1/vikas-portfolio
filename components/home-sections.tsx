@@ -470,21 +470,26 @@ export function Perspectives() {
               variants={revealItem}
               whileHover={{ y: -4 }}
               whileTap={{ scale: 0.98 }}
-              className="overflow-hidden border border-paper-border bg-paper-surface"
+              className="h-full"
             >
-              <div className="relative">
-                <Photo src={article.image} alt={article.title} className="aspect-[24/11]" light />
-                <span className="absolute left-3 top-3 rounded-full bg-paper-surface/95 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-accent">
-                  {article.tag === "Field note" ? "Note" : article.tag}
-                </span>
-              </div>
-              <div className="p-6">
-                <h3 className="text-lg font-normal leading-snug text-paper-foreground">{article.title}</h3>
-                <p className="mt-3 text-sm text-paper-muted">{article.description}</p>
-                <div className="mt-4 border-t border-paper-border pt-4 text-xs text-paper-muted">
-                  {article.meta.includes("·") ? article.meta.split("·").pop()?.trim() : article.meta}
+              <a
+                href={article.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block h-full overflow-hidden border border-paper-border bg-paper-surface transition-colors hover:border-[#8a5a34] focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+              >
+                <div className="relative">
+                  <Photo src={article.image} alt="" className="aspect-[24/11]" light />
+                  <span className="absolute left-3 top-3 rounded-full bg-paper-surface/95 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-accent">
+                    {article.tag}
+                  </span>
                 </div>
-              </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-normal leading-snug text-paper-foreground">{article.title}</h3>
+                  <p className="mt-3 text-sm text-paper-muted">{article.description}</p>
+                  <div className="mt-4 border-t border-paper-border pt-4 text-xs text-paper-muted">{article.meta}</div>
+                </div>
+              </a>
             </motion.div>
           ))}
         </RevealGroup>

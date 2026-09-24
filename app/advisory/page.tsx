@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import {
   AdvisoryCause,
+  CareInitiatives,
   AdvisoryFaq,
   AdvisoryForm,
   AdvisoryHero,
@@ -22,6 +23,7 @@ export default function AdvisoryPage() {
   return (
     <AdvisoryFormProvider>
       <AdvisoryHero />
+      <CareInitiatives />
       <AdvisoryHowItWorks />
       <AdvisoryImpact />
       <AdvisoryCause />

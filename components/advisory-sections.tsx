@@ -130,6 +130,40 @@ export function AdvisoryHero() {
   );
 }
 
+export function CareInitiatives() {
+  return (
+    <section className="border-y border-paper-border bg-paper py-12 sm:py-16">
+      <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-10">
+        <Reveal className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div>
+            <Eyebrow light>{advisory.cares.eyebrow}</Eyebrow>
+            <h2 className="mt-5 text-3xl font-semibold tracking-tight text-paper-foreground sm:text-4xl">
+              {advisory.cares.title}
+            </h2>
+          </div>
+          <p className="max-w-sm text-sm text-paper-muted">{advisory.cares.intro}</p>
+        </Reveal>
+
+        <RevealGroup className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
+          {advisory.cares.items.map((item) => (
+            <motion.div key={`${item.title}-${item.organisation ?? "initiative"}`} variants={revealItem} whileHover={{ y: -4 }}>
+              <TiltCard className="flex h-full min-h-52 flex-col border border-paper-border bg-paper-surface p-6">
+                <span className="flex h-10 w-10 items-center justify-center rounded-[3px] bg-[#8a5a34] text-white">
+                  <HeartIcon className="h-4 w-4" />
+                </span>
+                <h3 className="mt-7 text-xl font-normal text-paper-foreground">{item.title}</h3>
+                {item.organisation && <p className="mt-2 text-sm font-medium text-[#8a5a34]">{item.organisation}</p>}
+                {item.detail && <p className="mt-3 text-sm text-paper-muted">{item.detail}</p>}
+                {item.meta && <p className="mt-auto border-t border-paper-border pt-4 text-xs text-paper-muted">{item.meta}</p>}
+              </TiltCard>
+            </motion.div>
+          ))}
+        </RevealGroup>
+      </div>
+    </section>
+  );
+}
+
 export function AdvisoryHowItWorks() {
   return (
     <section id="how-it-works" className="scroll-mt-24 border-y border-paper-border bg-paper py-12 sm:py-14">

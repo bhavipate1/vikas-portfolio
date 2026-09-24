@@ -1,6 +1,6 @@
 "use client";
 
-import { type FormEvent, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { LogoMarquee } from "@/components/logo-marquee";
 import { Photo } from "@/components/photo";
@@ -11,15 +11,6 @@ import { ArrowUpRightIcon } from "@/components/icons";
 import { articles, write } from "@/lib/content";
 
 export function WriteHero() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "submitted">("idle");
-
-  function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    if (!email.trim()) return;
-    setStatus("submitted");
-  }
-
   return (
     <section className="relative overflow-hidden pb-12 pt-28 sm:pb-14 sm:pt-32 lg:min-h-[85vh] lg:flex lg:flex-col lg:justify-center">
       <div
@@ -41,29 +32,15 @@ export function WriteHero() {
           </Reveal>
 
           <Reveal delay={0.52}>
-            <form onSubmit={handleSubmit} className="mt-8 flex max-w-md flex-col gap-6 sm:flex-row" noValidate>
-              <label htmlFor="newsletter-email" className="sr-only">
-                Email address
-              </label>
-              <input
-                id="newsletter-email"
-                type="email"
-                required
-                placeholder="your@email.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full rounded-[5px] border border-border bg-surface px-5 py-3 text-sm text-foreground placeholder:text-muted/70 focus:outline-none focus:ring-2 focus:ring-accent/50"
-              />
-              <button
-                type="submit"
-                className="inline-flex shrink-0 items-center justify-center rounded-[5px] bg-accent px-6 py-3 text-sm font-normal text-accent-foreground transition-transform hover:-translate-y-0.5"
-              >
-                Subscribe
-              </button>
-            </form>
-            <p className="mt-4 text-xs text-muted" role="status">
-              {status === "submitted" ? "You're on the list." : write.subscribeNote}
-            </p>
+            <a
+              href={write.subscribeHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center gap-2 rounded-[5px] bg-accent px-6 py-3 text-sm font-normal text-accent-foreground transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+            >
+              Subscribe on LinkedIn <ArrowUpRightIcon className="h-4 w-4" />
+            </a>
+            <p className="mt-4 text-xs text-muted">{write.subscribeNote}</p>
           </Reveal>
         </div>
 
@@ -83,19 +60,19 @@ export function WriteHero() {
               <span className="inline-flex w-fit items-center rounded-full bg-accent px-3 py-1 text-[10.5px] font-normal uppercase tracking-[1.89px] text-accent-foreground">
                 {write.featured.issue}
               </span>
-              <h2 className="mt-4 text-3xl font-normal leading-snug text-[#f4ede3]">
-                The year every company
-                <br />
-                became an AI company —
-                <br />
-                and what that cost them
-              </h2>
+              <h2 className="mt-4 text-3xl font-normal leading-snug text-[#f4ede3]">{write.featured.title}</h2>
               <p className="mt-5 text-sm text-[#b8ada1]">{write.featured.body}</p>
               <div className="mt-7 flex items-center justify-between gap-4 border-t border-[#f4ede3]/[0.22] pt-7">
                 <span className="text-xs text-[#9a8f84]">{write.featured.meta}</span>
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#f4ede3]/40 text-[#f4ede3]">
+                <a
+                  href={write.featured.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Read ${write.featured.title}`}
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#f4ede3]/40 text-[#f4ede3] transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-accent"
+                >
                   <ArrowUpRightIcon className="h-4 w-4" />
-                </span>
+                </a>
               </div>
             </div>
           }
@@ -163,19 +140,32 @@ export function ArticleArchive() {
               whileHover={{ y: -4 }}
               whileTap={{ scale: 0.98 }}
               layout
-              className="block h-full overflow-hidden border border-paper-border bg-paper-surface"
+              className="h-full"
             >
-              <div className="relative">
-                <Photo src={article.image} alt={article.title} className="aspect-[16/10]" light />
-                <span className="absolute left-4 top-4 rounded-full bg-background/85 px-3 py-1 text-xs font-normal uppercase tracking-wide text-foreground backdrop-blur-sm">
-                  {article.tag}
-                </span>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-normal leading-snug text-paper-foreground">{article.title}</h3>
-                <p className="mt-2 text-sm text-paper-muted">{article.description}</p>
-                <div className="mt-5 border-t border-paper-border pt-4 text-xs text-paper-muted">{article.meta}</div>
-              </div>
+              <a
+                href={article.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block h-full overflow-hidden border border-paper-border bg-paper-surface transition-colors hover:border-[#8a5a34] focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+                aria-label={`Read ${article.title}`}
+              >
+                <div className="relative">
+                  <Photo src={article.image} alt="" className="aspect-[16/10]" light />
+                  <span className="absolute left-4 top-4 rounded-full bg-background/85 px-3 py-1 text-xs font-normal uppercase tracking-wide text-foreground backdrop-blur-sm">
+                    {article.tag}
+                  </span>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-normal leading-snug text-paper-foreground">{article.title}</h3>
+                  <p className="mt-2 text-sm text-paper-muted">{article.description}</p>
+                  <div className="mt-5 flex items-center justify-between gap-4 border-t border-paper-border pt-4 text-xs text-paper-muted">
+                    <span>{article.meta}</span>
+                    <span className="inline-flex items-center gap-1 text-[#8a5a34]">
+                      Read article <ArrowUpRightIcon className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </span>
+                  </div>
+                </div>
+              </a>
             </motion.div>
           ))}
         </RevealGroup>
@@ -212,16 +202,40 @@ export function WhyIWrite() {
   );
 }
 
+export function PodcastCards() {
+  return (
+    <section className="border-y border-paper-border bg-paper py-12 sm:py-14">
+      <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-10">
+        <Reveal className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div>
+            <Eyebrow light>{write.podcasts.eyebrow}</Eyebrow>
+            <h2 className="mt-5 text-3xl font-semibold tracking-tight text-paper-foreground sm:text-4xl">
+              {write.podcasts.title}
+            </h2>
+          </div>
+          <p className="max-w-sm text-sm text-paper-muted">{write.podcasts.intro}</p>
+        </Reveal>
+
+        <RevealGroup className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2" stagger={0.08}>
+          {write.podcasts.items.map((podcast, index) => (
+            <motion.div
+              key={podcast}
+              variants={revealItem}
+              whileHover={{ y: -4 }}
+              className="flex min-h-52 flex-col justify-between border border-paper-border bg-paper-surface p-7"
+            >
+              <span className="text-xs font-medium uppercase tracking-widest text-[#8a5a34]">Concept 0{index + 1}</span>
+              <h3 className="mt-12 max-w-lg text-2xl font-normal text-paper-foreground">{podcast}</h3>
+              <p className="mt-4 border-t border-paper-border pt-4 text-xs text-paper-muted">Episodes coming soon</p>
+            </motion.div>
+          ))}
+        </RevealGroup>
+      </div>
+    </section>
+  );
+}
+
 export function Experiential() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "submitted">("idle");
-
-  function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    if (!email.trim()) return;
-    setStatus("submitted");
-  }
-
   return (
     <section className="border-t border-border bg-surface-2 pt-12 pb-0 sm:pt-14">
       <div className="mx-auto grid max-w-8xl grid-cols-1 items-center gap-10 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:px-10">
@@ -232,27 +246,14 @@ export function Experiential() {
           </h2>
           <p className="mt-4 max-w-md text-sm text-muted sm:text-base">{write.experiential.body}</p>
 
-          <form onSubmit={handleSubmit} className="mt-8 flex max-w-md flex-col gap-6 sm:flex-row" noValidate>
-            <label htmlFor="experiential-email" className="sr-only">
-              Email address
-            </label>
-            <input
-              id="experiential-email"
-              type="email"
-              required
-              placeholder="your@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-[5px] border border-border bg-surface px-5 py-3 text-sm text-foreground placeholder:text-muted/70 focus:outline-none focus:ring-2 focus:ring-accent/50"
-            />
-            <button
-              type="submit"
-              className="inline-flex shrink-0 items-center justify-center rounded-[5px] bg-accent px-6 py-3 text-sm font-normal text-accent-foreground transition-transform hover:-translate-y-0.5"
-            >
-              Subscribe
-            </button>
-          </form>
-          {status === "submitted" && <p className="mt-2 text-xs text-accent">You&apos;re on the list.</p>}
+          <a
+            href={write.subscribeHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex items-center gap-2 rounded-[5px] bg-accent px-6 py-3 text-sm font-normal text-accent-foreground transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+          >
+            Read Being Curious <ArrowUpRightIcon className="h-4 w-4" />
+          </a>
 
           <div className="mt-7 flex flex-wrap gap-8 border-t border-border pt-6">
             {write.experiential.stats.map((stat) => (

@@ -124,13 +124,17 @@ export function SpeakerEngagements() {
 
         <RevealGroup className="mt-12 divide-y divide-paper-border border-y border-paper-border" stagger={0.05}>
           {speaker.engagements.items.map((item, i) => (
-            <motion.div
+            <motion.a
               key={item.title}
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${item.title}`}
               variants={revealItem}
               whileHover={{ x: 6 }}
               whileTap={{ scale: 0.99 }}
               transition={{ duration: 0.2 }}
-              className="group -mx-5 flex items-center gap-5 rounded-xl px-5 py-5 text-paper-foreground transition-colors duration-300 ease-out hover:bg-paper-surface active:bg-paper-surface sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10"
+              className="group -mx-5 flex items-center gap-5 rounded-xl px-5 py-5 text-paper-foreground transition-colors duration-300 ease-out hover:bg-paper-surface active:bg-paper-surface focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10"
             >
               {/* Fixed width: the body sets font-feature-settings, which stops
                   `tabular-nums` from applying, so digits are proportional and
@@ -146,7 +150,7 @@ export function SpeakerEngagements() {
                 {item.tag}
               </span>
               <ArrowUpRightIcon className="h-4 w-4 shrink-0 text-[#8a5a34] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-active:translate-x-0.5 group-active:-translate-y-0.5" />
-            </motion.div>
+            </motion.a>
           ))}
         </RevealGroup>
       </div>

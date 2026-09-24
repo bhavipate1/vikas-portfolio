@@ -193,6 +193,7 @@ export function EducationSection() {
                 </span>
                 <h3 className="relative mt-7 text-[26px] font-normal text-paper-foreground">{item.org}</h3>
                 <p className="relative mt-1 text-[14.5px] text-[#8a5a34]">{item.program}</p>
+                <p className="relative mt-2 text-xs font-medium uppercase tracking-wide text-paper-muted">{item.timeline}</p>
                 <p className="relative mt-5 border-t border-[#1a1714]/10 pt-[21px] text-sm text-[#6b6058]">
                   {item.body}
                 </p>

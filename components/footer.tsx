@@ -6,7 +6,7 @@ import { BackToTop } from "@/components/back-to-top";
 import { ArrowDownIcon, ArrowUpRightIcon, MailIcon, PhoneIcon, LinkedInIcon } from "@/components/icons";
 import { Reveal } from "@/components/reveal";
 import { Cta } from "@/components/ui";
-import { contact, footer, site } from "@/lib/content";
+import { contact, footer, site, socials } from "@/lib/content";
 
 export function Footer() {
   const pathname = usePathname();
@@ -124,6 +124,25 @@ export function Footer() {
                 </li>
               </ul>
             </div>
+          </div>
+
+          <div className="mt-10 border-t border-border pt-7">
+            <span className="text-xs font-semibold uppercase tracking-[2.64px] text-muted">Follow</span>
+            <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-3">
+              {socials.map((social) => (
+                <li key={social.href}>
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+                    aria-label={`${social.label}: ${social.handle}`}
+                  >
+                    {social.label} <ArrowUpRightIcon className="h-3.5 w-3.5" />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 text-xs text-muted sm:flex-row">

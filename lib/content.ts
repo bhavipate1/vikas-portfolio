@@ -15,6 +15,16 @@ export const site = {
   domain: "https://www.vikassurani.com",
 };
 
+export const socials = [
+  { label: "LinkedIn", handle: "/in/suranivikas", href: "https://www.linkedin.com/in/suranivikas" },
+  { label: "Instagram", handle: "@vrsurani", href: "https://www.instagram.com/vrsurani/" },
+  { label: "Facebook", handle: "Vikas Surani", href: "https://www.facebook.com/vikas.surani" },
+  { label: "YouTube · Being Curious", handle: "@beingcurious3211", href: "https://www.youtube.com/@beingcurious3211" },
+  { label: "YouTube · VRSurani", handle: "@vrsurani", href: "https://www.youtube.com/@vrsurani" },
+  { label: "YouTube · Vicky TV", handle: "@vickytv5541", href: "https://www.youtube.com/@vickytv5541" },
+  { label: "YouTube · CloudYou", handle: "@cloudyou710", href: "https://www.youtube.com/@cloudyou710" },
+];
+
 export const nav = [
   { label: "Being Curious", href: "/" },
   { label: "Being Leader", href: "/about" },
@@ -32,7 +42,7 @@ export const home = {
   stats: [
     { icon: "mic", title: "TEDx Speaker", meta: "Rise of Bharat" },
     { icon: "sparkle", title: "AI-Led Transformation", meta: "Enterprise programmes" },
-    { icon: "user", title: "20+ Years Leading", meta: "Global delivery & strategy" },
+    { icon: "user", title: "16+ Years Leading", meta: "Global delivery & strategy" },
     { icon: "bars", title: "50+ Stages", meta: "Conferences · Campuses · Forums" },
   ],
   ctas: [
@@ -47,7 +57,7 @@ export const home = {
     link: { label: "Read the full story", href: "/about" },
     photoBadge: "Innovation & Social Impact · 2026",
     photoStats: [
-      { value: "20+", label: "Years in tech" },
+      { value: "16+", label: "Years in consulting" },
       { value: "50+", label: "Stages & forums" },
       { value: "TEDx", label: "Speaker, 2026" },
     ],
@@ -105,7 +115,7 @@ export const home = {
     text: "AI doesn't transform a business. Leaders who are willing to change how the work is done with AI in their hands do.",
     watchLabel: "Watch the talk · 14 min",
     stats: [
-      { value: "20+", label: "Years in tech" },
+      { value: "16+", label: "Years in consulting" },
       { value: "50+", label: "Stages & forums" },
       { value: "TEDx", label: "Speaker" },
     ],
@@ -181,10 +191,10 @@ export const about = {
   ],
   photoCaption: { name: "Vikas Surani", role: "Global Vice President, Mastek · Ahmedabad" },
   stats: [
-    { value: "15+", label: "Years in enterprise IT consulting and transformation" },
-    { value: "40+", label: "Countries where those programmes were delivered" },
-    { value: "$50M+", label: "Multi-pillar transformation deals led end to end" },
-    { value: "3000+", label: "Readers of Being Learner, his newsletter" },
+    { value: "16+", label: "Years in enterprise IT consulting and transformation" },
+    { value: "14", label: "Countries where those programmes were delivered" },
+    { value: "$100M+", label: "Transformation programmes led end to end" },
+    { value: "2900+", label: "Subscribers to the Being Curious newsletter" },
   ],
   intro: "I've never been the smartest person in the room. I've usually been the one asking the most questions in it and that turned out to be the more useful habit.",
   thenNow: [
@@ -258,19 +268,22 @@ export const about = {
         tag: "Senior mgmt",
         org: "IIM Ahmedabad",
         program: "Senior Management Programme",
-        body: "The first room where nobody was impressed by a technology answer. It reset how I frame a business case.",
+        body: "Strategic Management",
+        timeline: "2025-2026",
       },
       {
         tag: "MBA",
         org: "Ahmedabad University",
         program: "Marketing & Information System Management",
-        body: "Where the engineer learned to talk about value instead of features — and discovered he enjoyed the selling more than expected.",
+        body: "Master of Business Administration",
+        timeline: "2009-2011",
       },
       {
         tag: "Engineering",
         org: "Atmiya University, Rajkot",
         program: "Bachelor of Engineering",
-        body: "A small college, a big question: understand how things actually work. Everything since has been a variation on it.",
+        body: "Computer Science",
+        timeline: "2004-2008",
       },
     ],
   },
@@ -363,9 +376,9 @@ export const speaker = {
   ],
   stats: [
     { value: "14+", label: "Countries where transformation programmes were delivered" },
-    { value: "$50M+", label: "Multi-pillar transformation deals led" },
+    { value: "$100M+", label: "Transformation programmes led" },
     { value: "20+", label: "Global forums on transformation, AI and leadership" },
-    { value: "3000+", label: "Members of Being Learner, his experiential newsletter" },
+    { value: "45+", label: "Being Curious newsletter editions" },
   ],
   logos: ["United World", "Karnavati University", "Mastek", "IIM Ahmedabad", "TEDxNBS", "Global Computing Conference"],
   engagements: {
@@ -373,19 +386,24 @@ export const speaker = {
     title: "Stages, so far",
     intro: "TEDx, national conclaves, global conferences, universities and closed-door corporate forums.",
     items: [
-      { title: "The Rise of Bharat", meta: "TEDxNBS · Narayana Business School", tag: "TEDx" },
-      { title: "Global Computing Conference", meta: "Hyderabad", tag: "Keynote" },
-      { title: "International Conference on Innovation", meta: "United World", tag: "Conference" },
-      { title: "National Conclave on Emerging Trends", meta: "Karnavati University", tag: "Conclave" },
-      { title: "Fireside Chats, Townhalls, Strategy & AI Workshops", meta: "Mastek · Globally", tag: "Corporate" },
+      { title: "The Curious Case of Bharat", meta: "TEDxNBS · 19 Dec 2025", tag: "TEDx", href: "https://www.youtube.com/watch?v=JDt7lnnmKA0" },
+      { title: "International Conference on Innovation, Sustainability & Social Impact", meta: "15 Oct 2025", tag: "Conference", href: "https://drive.google.com/drive/folders/1snL0ll73BJwFQQJgB55OLsgyFOsOJPVL?usp=drive_link" },
+      { title: "National Conclave on Emerging Trends", meta: "HR, L&D & CSR · 9 Nov 2024", tag: "Conclave", href: "https://drive.google.com/drive/folders/1GW0XLx98wz1Wi2tkyxGpC9YTBF_-RtmM?usp=drive_link" },
+      { title: "The Future is NOW - IGNITE 2026", meta: "SKIPS University", tag: "Keynote", href: "https://www.instagram.com/reel/DbZ7wBgqbIp/" },
+      { title: "National Conclave on AI", meta: "Ahmedabad University", tag: "Conclave", href: "https://ahduni.edu.in/all-events/the-alumni-series-seventh-conversation/" },
     ],
   },
   videos: {
     eyebrow: "Watch",
     title: "Talks on video",
     items: [
-      { tag: "TEDx", duration: "14 min", title: "The Rise of Bharat", meta: "TEDxNBS · Narayana Business School", image: "/images/speaker/video1.jpg", href: undefined as string | undefined },
-      { tag: "Keynote", duration: "22 min", title: "Transformation beyond the technology", meta: "Global Computing Conference · Hyderabad", image: undefined as string | undefined, href: undefined as string | undefined },
+      { tag: "TEDx", duration: "YouTube", title: "The Curious Case of Bharat", meta: "TEDxNBS · 19 Dec 2025", image: "/images/speaker/video1.jpg", href: "https://www.youtube.com/watch?v=JDt7lnnmKA0" },
+      { tag: "Short", duration: "YouTube", title: "The Curious Case of Bharat · Short", meta: "TEDxNBS · 21 Nov 2025", image: "/images/speaker/hero.jpg", href: "https://www.youtube.com/watch?v=W390iP902lk" },
+      { tag: "Story", duration: "LinkedIn", title: "Chinese Farmer", meta: "15 May 2024", image: "/images/speaker/background.jpg", href: "https://www.linkedin.com/posts/suranivikas_storytelling-activity-7032283496895197184-fpYR" },
+      { tag: "Story", duration: "LinkedIn", title: "Don't Be the Ladder Guy", meta: "15 May 2023", image: "/images/speaker/contact.jpg", href: "https://www.linkedin.com/posts/suranivikas_storytelling-activity-7033455329140969472-XyH2" },
+      { tag: "Profile", duration: "YouTube", title: "Employee Spotlight - Vikas Surani", meta: "14 Sep 2023", image: "/images/speaker/video1.jpg", href: "https://www.youtube.com/watch?v=e6PUD0UEE5o" },
+      { tag: "Testimonial", duration: "YouTube", title: "Brand Champion Testimonial", meta: "18 Dec 2024", image: "/images/speaker/hero.jpg", href: "https://www.youtube.com/watch?v=Je5LxK_kwic" },
+      { tag: "Testimonial", duration: "YouTube", title: "PoSH IC Testimonial", meta: "12 Sep 2024", image: "/images/speaker/background.jpg", href: "https://www.youtube.com/watch?v=12JA80XgHPQ" },
     ],
   },
   formats: {
@@ -408,7 +426,7 @@ export const speaker = {
       { label: "Senior management", org: "IIM Ahmedabad", meta: "Senior Management Programme" },
       { label: "MBA", org: "Ahmedabad University", meta: "Marketing & Information System Management" },
       { label: "Engineering", org: "Atmiya University, Rajkot", meta: "Bachelor of Engineering" },
-      { label: "Newsletter", org: "Being Learner", meta: "An experiential newsletter, 3000+ members" },
+      { label: "Newsletter", org: "Being Curious", meta: "45+ editions, 2900+ subscribers" },
     ],
   },
   contact: {
@@ -419,7 +437,7 @@ export const speaker = {
       { label: "Email", value: site.email, href: `mailto:${site.email}` },
       { label: "Mobile", value: site.phone, href: `tel:${site.phoneHref}` },
       { label: "LinkedIn", value: site.linkedinHandle, href: site.linkedin },
-      { label: "One-pager", value: "Speaker profile PDF", href: `mailto:${site.email}?subject=Speaker%20profile%20PDF`, highlight: true },
+      { label: "One-pager", value: "Speaker profile PDF", href: "/documents/speaker-profile.pdf", highlight: true },
     ],
   },
 };
@@ -444,6 +462,19 @@ export const advisory = {
     { value: "45 min", label: "Per conversation" },
   ],
   categories: ["Career & leadership", "AI & transformation", "Startup & product", "Student mentorship"],
+  cares: {
+    eyebrow: "Vikas cares",
+    title: "Causes and community work",
+    intro: "Initiatives and responsibilities documented in the portfolio index.",
+    items: [
+      { title: "PoSH Internal Committee", organisation: "Mastek", detail: "Prevention of Sexual Harassment for Women at Workplace · IC member", meta: "2023-2026" },
+      { title: "PoSH Certified Trainer", organisation: "Mahabodhi", detail: "Certified trainer", meta: undefined as string | undefined },
+      { title: "Thursday Giving", organisation: undefined as string | undefined, detail: undefined as string | undefined, meta: undefined as string | undefined },
+      { title: "Run for a Cause", organisation: undefined as string | undefined, detail: undefined as string | undefined, meta: undefined as string | undefined },
+      { title: "Tree Plantation", organisation: undefined as string | undefined, detail: undefined as string | undefined, meta: undefined as string | undefined },
+      { title: "Mastek Foundation", organisation: undefined as string | undefined, detail: undefined as string | undefined, meta: undefined as string | undefined },
+    ],
+  },
   howItWorks: {
     eyebrow: "How it works",
     title: "Three steps, one good side effect",
@@ -627,17 +658,19 @@ export const advisory = {
 // ------------------------------------------------------------------ Write
 
 export const write = {
-  badge: "Being Learner · Newsletter",
+  badge: "Being Learner · Being Curious Newsletter",
   headline: ["Thinking", "out loud"],
   body: "Newsletters, essays and half-formed ideas on AI, transformation and leadership written from inside the work, not above it.",
-  subscribeNote: "One issue every other week. No pitches, no filler.",
-  categoryLabels: ["Newsletters", "Essays", "Field notes", "Talk transcripts"],
-  filters: ["Newsletter", "Essay", "Field note", "Talk"],
+  subscribeNote: "Follow Being Curious on LinkedIn for every new edition.",
+  subscribeHref: "https://www.linkedin.com/newsletters/being-curious-7247115007161757696/",
+  categoryLabels: ["Leadership", "AI", "Growth mindset", "Transformation"],
+  filters: ["Newsletter", "Mastek Article"],
   featured: {
-    issue: "Latest issue · #24",
-    title: "The year every company became an AI company — and what that cost them",
-    body: "Everyone shipped a copilot. Very few changed a process. A field note on the difference.",
-    meta: "July 2026 · 7 min read",
+    issue: "Latest issue · #42",
+    title: "2025 Reflections",
+    body: "The latest edition of Being Curious, published on LinkedIn.",
+    meta: "January 2026 · Being Curious Newsletter",
+    href: "https://www.linkedin.com/pulse/2025-reflections-vikas-surani-9aeqf",
   },
   library: { eyebrow: "The library", title: "Everything written" },
   whyIWrite: {
@@ -649,76 +682,106 @@ export const write = {
   experiential: {
     eyebrow: "Being Learner",
     title: "An experiential newsletter",
-    body: "3000+ leaders, operators and students read it. One issue every other week what worked, what didn't, and what I'm still unsure about.",
+    body: "2900+ leaders, operators and students read Being Curious: what worked, what didn't, and what I'm still unsure about.",
     stats: [
-      { value: "3000+", label: "Subscribers" },
-      { value: "24", label: "Issues published" },
+      { value: "2900+", label: "Subscribers" },
+      { value: "45+", label: "Editions published" },
       { value: "Weekly", label: "Cadence" },
     ],
+  },
+  podcasts: {
+    eyebrow: "Podcasts",
+    title: "Conversations in development",
+    intro: "Podcast concepts from the portfolio index. Links will be added when episodes are published.",
+    items: ["Being Curious with Vikas Surani", "Coffee Conversations with Vikas Surani"],
   },
 };
 
 export type Article = {
   title: string;
   description: string;
-  tag: "Essay" | "Talk" | "Newsletter" | "Field note";
+  tag: "Newsletter" | "Mastek Article";
+  date: string;
   meta: string;
   href: string;
   homeFeatured?: boolean;
-  image?: string;
+  image: string;
+  /** Local offline copy of the source PDF (see AGENTS.md "Image Rendering Logic"), when available. */
+  offlineCopy?: string;
 };
 
-export const articles: Article[] = [
-  {
-    title: "The year every company became an AI company",
-    description: "Everyone shipped a copilot. Very few changed a process. A field note on the difference.",
-    tag: "Newsletter",
-    meta: "Jul 2026 · 7 min read",
-    href: "#",
-    image: "/images/write/article-featured.jpg",
-  },
-  {
-    title: "Why most AI programmes stall at the pilot",
-    description: "The gap is rarely the model. It's ownership, data plumbing, and the courage to retire the old process.",
-    tag: "Essay",
-    meta: "Jun 2026 · 6 min read",
-    href: "#",
-    homeFeatured: true,
-    image: "/images/home/on-stage-audience.jpg",
-  },
-  {
-    title: "Rise of Bharat: a movement beyond markets",
-    description: "TEDx, Narayana Business School — on what India is building that a market-size chart can't show.",
-    tag: "Talk",
-    meta: "May 2026 · 14 min watch",
-    href: "#",
-    homeFeatured: true,
-    image: "/images/home/bharat-article.jpg",
-  },
-  {
-    title: "The leadership skill AI can't automate",
-    description: "Deciding under ambiguity, with incomplete data and real consequences for real people.",
-    image: "/images/home/contact.jpg",
-    tag: "Field note",
-    meta: "Apr 2026 · 4 min read",
-    href: "#",
-    homeFeatured: true,
-  },
-  {
-    title: "What forty countries taught me about change",
-    description: "The same transformation plan lands differently in every culture. Some patterns still travel.",
-    tag: "Newsletter",
-    meta: "Mar 2026 · 8 min read",
-    href: "#",
-  },
-  {
-    title: "Innovation is a budgeting problem",
-    description: "Teams rarely lack ideas. They lack the protected time and tolerance for a failed one.",
-    tag: "Essay",
-    meta: "Feb 2026 · 5 min read",
-    href: "#",
-  },
-];
+// Cover image resolution (see AGENTS.md "Image Rendering Logic"):
+// 1. PDF link on the row -> first page rendered and stored locally.
+// 2. No PDF but a LinkedIn post/article link -> that post's preview image,
+//    downloaded once and stored locally (never scraped at runtime).
+// 3. Neither available -> BRANDED_FALLBACK_IMAGE (Being Curious cover).
+// The 5th column is that resolved cover image path, or "" to use the fallback.
+// The 6th column is the row's own offline-copy PDF, stored locally from the
+// workbook's "Offline Copy" link, or "" where Drive sharing blocked the download.
+const BRANDED_FALLBACK_IMAGE = "/images/write/hero.jpg";
+
+const articleRows = [
+  ["How to Get Things Done, Grow, and Thrive.", "2024-10-06", "Newsletter", "https://www.linkedin.com/pulse/how-get-things-done-grow-thrive-vikas-surani-btlxf", "/images/articles/how-to-get-things-done-grow-and-thrive.jpg", "/documents/articles/how-to-get-things-done-grow-and-thrive.pdf"],
+  ["GenAI. Powered by You.", "2024-10-13", "Newsletter", "https://www.linkedin.com/pulse/genai-powered-you-vikas-surani-bpfvf", "/images/articles/genai-powered-by-you.jpg", "/documents/articles/genai-powered-by-you.pdf"],
+  ["Building the Fearless Workplace. Now.", "2024-10-20", "Newsletter", "https://www.linkedin.com/pulse/building-fearless-workplace-now-vikas-surani-vc3pf", "/images/articles/building-the-fearless-workplace-now.jpg", "/documents/articles/building-the-fearless-workplace-now.pdf"],
+  ["Digital Odyssey", "2024-10-27", "Newsletter", "https://www.linkedin.com/pulse/digital-odyssey-vikas-surani-u6w1c", "/images/articles/digital-odyssey.jpg", "/documents/articles/digital-odyssey.pdf"],
+  ["The Indian Way", "2024-11-03", "Newsletter", "https://www.linkedin.com/pulse/indian-way-vikas-surani-himqc", "/images/articles/the-indian-way.jpg", "/documents/articles/the-indian-way.pdf"],
+  ["Reflections on the Journey", "2024-11-10", "Newsletter", "https://www.linkedin.com/pulse/reflections-journey-vikas-surani-cloxf", "/images/articles/reflections-on-the-journey.jpg", "/documents/articles/reflections-on-the-journey.pdf"],
+  ["Embracing a Growth Mindset", "2024-11-17", "Newsletter", "https://www.linkedin.com/pulse/embracing-growth-mindset-vikas-surani-e4z1f", "/images/articles/embracing-a-growth-mindset.jpg", "/documents/articles/embracing-a-growth-mindset.pdf"],
+  ["How to Lead When You're Not in Charge", "2024-11-24", "Newsletter", "https://www.linkedin.com/pulse/how-lead-when-youre-charge-vikas-surani-v5pbf", "/images/articles/how-to-lead-when-you-re-not-in-charge.jpg", "/documents/articles/how-to-lead-when-you-re-not-in-charge.pdf"],
+  ["Treat Soft Things, Hard.", "2024-12-01", "Newsletter", "https://www.linkedin.com/pulse/treat-soft-things-hard-vikas-surani-q85ef", "/images/articles/treat-soft-things-hard.jpg", "/documents/articles/treat-soft-things-hard.pdf"],
+  ["The Forgotten Art of Curiosity", "2024-12-08", "Newsletter", "https://www.linkedin.com/pulse/forgotten-art-curiosity-vikas-surani-xmmcf", "/images/articles/the-forgotten-art-of-curiosity.jpg", "/documents/articles/the-forgotten-art-of-curiosity.pdf"],
+  ["Connecting the Dots", "2024-12-15", "Newsletter", "https://www.linkedin.com/pulse/connecting-dots-vikas-surani-fymaf", "/images/articles/connecting-the-dots.jpg", "/documents/articles/connecting-the-dots.pdf"],
+  ["5 Hacks to Turn Teamwork into Dreamwork", "2024-12-22", "Newsletter", "https://www.linkedin.com/pulse/5-hacks-turn-teamwork-dreamwork-vikas-surani-wgmvf", "/images/articles/5-hacks-to-turn-teamwork-into-dreamwork.jpg", "/documents/articles/5-hacks-to-turn-teamwork-into-dreamwork.pdf"],
+  ["2024 Reflections, 2025 Year of Experiences", "2024-12-24", "Newsletter", "https://www.linkedin.com/pulse/2024-reflections-2025-year-experiences-vikas-surani-1wlbf", "/images/articles/2024-reflections-2025-year-of-experiences.jpg", "/documents/articles/2024-reflections-2025-year-of-experiences.pdf"],
+  ["Kickstart 2025 with the Wheel of Life", "2025-01-05", "Newsletter", "https://www.linkedin.com/pulse/kickstart-2025-wheel-life-vikas-surani-tzxnf", "/images/articles/kickstart-2025-with-the-wheel-of-life.jpg", "/documents/articles/kickstart-2025-with-the-wheel-of-life.pdf"],
+  ["The Power of Paradoxes", "2025-01-11", "Newsletter", "https://www.linkedin.com/pulse/power-paradoxes-vikas-surani-jqibf", "/images/articles/the-power-of-paradoxes.jpg", "/documents/articles/the-power-of-paradoxes.pdf"],
+  ["The Power of 80:20", "2025-01-19", "Newsletter", "https://www.linkedin.com/pulse/power-8020-vikas-surani-8szaf", "/images/articles/the-power-of-80-20.jpg", "/documents/articles/the-power-of-80-20.pdf"],
+  ["Success Leads Happiness?", "2025-01-26", "Newsletter", "https://www.linkedin.com/pulse/success-leads-happiness-vikas-surani-ndygf", "/images/articles/success-leads-happiness.jpg", "/documents/articles/success-leads-happiness.pdf"],
+  ["You Are the CEO of Your Life.", "2025-02-02", "Newsletter", "https://www.linkedin.com/pulse/you-ceo-your-life-vikas-surani-gdzif", "/images/articles/you-are-the-ceo-of-your-life.jpg", "/documents/articles/you-are-the-ceo-of-your-life.pdf"],
+  ["Good Thing, Bad Thing, Who Knows?", "2025-02-09", "Newsletter", "https://www.linkedin.com/pulse/good-thing-bad-who-knows-vikas-surani-fcorf", "/images/articles/good-thing-bad-thing-who-knows.jpg", "/documents/articles/good-thing-bad-thing-who-knows.pdf"],
+  ["Clear Mind, Bold Action, Consistent Growth", "2025-02-16", "Newsletter", "https://www.linkedin.com/pulse/clear-mind-bold-action-consistent-growth-vikas-surani-1435f", "/images/articles/clear-mind-bold-action-consistent-growth.jpg", "/documents/articles/clear-mind-bold-action-consistent-growth.pdf"],
+  ["Heads You Win, Tails You Learn", "2025-02-23", "Newsletter", "https://www.linkedin.com/pulse/heads-you-win-tails-learn-vikas-surani-tzcjf", "/images/articles/heads-you-win-tails-you-learn.jpg", "/documents/articles/heads-you-win-tails-you-learn.pdf"],
+  ["Leading without a Map: Thriving in Uncertainty", "2025-03-03", "Newsletter", "https://www.linkedin.com/pulse/leading-without-map-thriving-uncertainty-vikas-surani-msquf", "/images/articles/leading-without-a-map-thriving-in-uncertainty.jpg", "/documents/articles/leading-without-a-map-thriving-in-uncertainty.pdf"],
+  ["Generalist vs. Specialist: Finding Your Edge", "2025-03-10", "Newsletter", "https://www.linkedin.com/pulse/generalist-vs-specialist-finding-your-edge-vikas-surani-p9taf", "/images/articles/generalist-vs-specialist-finding-your-edge.jpg", "/documents/articles/generalist-vs-specialist-finding-your-edge.pdf"],
+  ["Behavior Follows Your Identity", "2025-03-18", "Newsletter", "https://www.linkedin.com/pulse/behavior-follows-your-identity-vikas-surani-yh3bf", "/images/articles/behavior-follows-your-identity.jpg", "/documents/articles/behavior-follows-your-identity.pdf"],
+  ["Showing Up", "2025-03-24", "Newsletter", "https://www.linkedin.com/pulse/showing-up-vikas-surani-yjj9f", "/images/articles/showing-up.jpg", "/documents/articles/showing-up.pdf"],
+  ["The Power of Starting Before You're Ready vs. The Hell Yes Rule", "2025-04-02", "Newsletter", "https://www.linkedin.com/pulse/power-starting-before-youre-ready-vs-hell-yes-rule-vikas-surani-kr4uf", "/images/articles/the-power-of-starting-before-you-re-ready-vs-the-hell-yes-ru.jpg", "/documents/articles/the-power-of-starting-before-you-re-ready-vs-the-hell-yes-ru.pdf"],
+  ["Is Your Company a Team or a Family?", "2025-06-01", "Newsletter", "https://www.linkedin.com/pulse/your-company-team-family-vikas-surani-wp3zf", "/images/articles/is-your-company-a-team-or-a-family.jpg", "/documents/articles/is-your-company-a-team-or-a-family.pdf"],
+  ["The Question That Gets Everyone to Say Yes", "2025-06-08", "Newsletter", "https://www.linkedin.com/pulse/question-gets-everyone-say-yes-vikas-surani-1ojqf", "/images/articles/the-question-that-gets-everyone-to-say-yes.jpg", "/documents/articles/the-question-that-gets-everyone-to-say-yes.pdf"],
+  ["The First Leader I Ever Knew", "2025-06-15", "Newsletter", "https://www.linkedin.com/pulse/first-leader-i-ever-knew-vikas-surani-rkq1f", "/images/articles/the-first-leader-i-ever-knew.jpg", "/documents/articles/the-first-leader-i-ever-knew.pdf"],
+  ["I See Things Others Don't!", "2025-06-21", "Newsletter", "https://www.linkedin.com/pulse/i-see-things-others-dont-vikas-surani-2owlf", "/images/articles/i-see-things-others-don-t.jpg", "/documents/articles/i-see-things-others-don-t.pdf"],
+  ["Boss Is Always Right? (Nah, Not Always)", "2025-07-06", "Newsletter", "https://www.linkedin.com/pulse/boss-always-right-nah-vikas-surani-fwucf", "/images/articles/boss-is-always-right-nah-not-always.jpg", "/documents/articles/boss-is-always-right-nah-not-always.pdf"],
+  ["The Lifelong Learner's Edge", "2025-07-14", "Newsletter", "https://www.linkedin.com/pulse/lifelong-learners-edge-vikas-surani-2p4if", "/images/articles/the-lifelong-learner-s-edge.jpg", "/documents/articles/the-lifelong-learner-s-edge.pdf"],
+  ["Gratitude Is an Attitude", "2025-07-21", "Newsletter", "https://www.linkedin.com/pulse/gratitude-attitude-vikas-surani-2v1vf", "/images/articles/gratitude-is-an-attitude.jpg", "/documents/articles/gratitude-is-an-attitude.pdf"],
+  ["The Future of Work: Disruption or Realignment?", "2025-07-28", "Newsletter", "https://www.linkedin.com/pulse/future-work-disruption-realignment-vikas-surani-kkccf", "/images/articles/the-future-of-work-disruption-or-realignment.jpg", "/documents/articles/the-future-of-work-disruption-or-realignment.pdf"],
+  ["Turning 40, Living Now", "2025-08-18", "Newsletter", "https://www.linkedin.com/pulse/turning-40-living-now-vikas-surani-4orif", "/images/articles/turning-40-living-now.jpg", "/documents/articles/turning-40-living-now.pdf"],
+  ["Lead with AI", "2025-08-31", "Newsletter", "https://www.linkedin.com/pulse/lead-ai-vikas-surani-rmoyf", "/images/articles/lead-with-ai.jpg", "/documents/articles/lead-with-ai.pdf"],
+  ["The AI-First Shift: Turning Curiosity into Capability", "2025-09-07", "Newsletter", "https://www.linkedin.com/pulse/ai-first-shift-turning-curiosity-capability-vikas-surani-rzfff", "/images/articles/the-ai-first-shift-turning-curiosity-into-capability.jpg", "/documents/articles/the-ai-first-shift-turning-curiosity-into-capability.pdf"],
+  ["The Uncomfortable Path to Growth", "2025-09-22", "Newsletter", "https://www.linkedin.com/pulse/uncomfortable-path-growth-vikas-surani-pggsf", "/images/articles/the-uncomfortable-path-to-growth.jpg", "/documents/articles/the-uncomfortable-path-to-growth.pdf"],
+  ["From Intent to Impact: Innovation, Sustainability & Social Impact", "2025-11-05", "Newsletter", "https://www.linkedin.com/pulse/from-intent-impact-innovation-sustainability-social-vikas-surani-ric1f", "/images/articles/from-intent-to-impact-innovation-sustainability-social-impac.jpg", "/documents/articles/from-intent-to-impact-innovation-sustainability-social-impac.pdf"],
+  ["The Joy of Learning (Back to Campus Edition)", "2025-12-01", "Newsletter", "https://www.linkedin.com/pulse/joy-learning-back-campus-edition-vikas-surani-u3t3f", "/images/articles/the-joy-of-learning-back-to-campus-edition.jpg", "/documents/articles/the-joy-of-learning-back-to-campus-edition.pdf"],
+  ["This Story Was Waiting for a Red Dot", "2025-12-22", "Newsletter", "https://www.linkedin.com/pulse/story-waiting-red-dot-vikas-surani-9tbjc", "/images/articles/this-story-was-waiting-for-a-red-dot.jpg", "/documents/articles/this-story-was-waiting-for-a-red-dot.pdf"],
+  ["2025 Reflections", "2026-01-01", "Newsletter", "https://www.linkedin.com/pulse/2025-reflections-vikas-surani-9aeqf", "/images/articles/2025-reflections.jpg", "/documents/articles/2025-reflections.pdf"],
+  ["What Oracle E-Business Suite 12.1 Customers Need to Know", "2021-05-14", "Mastek Article", "https://blog.mastek.com/what-oracle-ebs-customers-need-to-know", "/images/articles/what-oracle-e-business-suite-12-1-customers-need-to-know.jpg", "/documents/articles/what-oracle-e-business-suite-12-1-customers-need-to-know.pdf"],
+  ["PeopleSoft to Cloud Transformation - It's Not Just Hot Air", "2022-08-08", "Mastek Article", "https://blog.mastek.com/peoplesoft-to-cloud-migration", "/images/articles/peoplesoft-to-cloud-transformation-it-s-not-just-hot-air.jpg", ""],
+  ["The Trust of Expertise Behind Value and Velocity in Digital Transformation", "2024-04-22", "Mastek Article", "https://blog.mastek.com/trust-of-expertise-behind-value-and-velocity-in-digital-transformation/", "/images/articles/the-trust-of-expertise-behind-value-and-velocity-in-digital-.jpg", ""],
+  ["AI in ERP: Smarter Systems, Better Business Decisions", "", "Mastek Article", "https://blog.mastek.com/ai-in-erp-smarter-systems-better-business-decisions", "/images/articles/ai-in-erp-smarter-systems-better-business-decisions.jpg", ""],
+] as const;
+
+export const articles: Article[] = articleRows
+  .map(([title, date, tag, href, image, offlineCopy], index) => ({
+    title,
+    description: tag === "Newsletter" ? "Being Curious Newsletter" : "Published on the Mastek blog",
+    tag,
+    date,
+    meta: date ? new Date(`${date}T00:00:00`).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" }) : "Mastek Website",
+    href,
+    homeFeatured: index >= 39 && index <= 41,
+    image: image || BRANDED_FALLBACK_IMAGE,
+    offlineCopy: offlineCopy || undefined,
+  }))
+  .sort((a, b) => b.date.localeCompare(a.date));
 
 // -------------------------------------------------------------- Contact
 
