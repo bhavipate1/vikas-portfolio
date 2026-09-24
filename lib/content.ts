@@ -397,13 +397,13 @@ export const speaker = {
     eyebrow: "Watch",
     title: "Talks on video",
     items: [
-      { tag: "TEDx", duration: "YouTube", title: "The Curious Case of Bharat", meta: "TEDxNBS · 19 Dec 2025", image: "/images/speaker/video1.jpg", href: "https://www.youtube.com/watch?v=JDt7lnnmKA0" },
-      { tag: "Short", duration: "YouTube", title: "The Curious Case of Bharat · Short", meta: "TEDxNBS · 21 Nov 2025", image: "/images/speaker/hero.jpg", href: "https://www.youtube.com/watch?v=W390iP902lk" },
+      { tag: "TEDx", duration: "YouTube", title: "The Curious Case of Bharat", meta: "TEDxNBS · 19 Dec 2025", image: "/images/speaker/videos/tedx-curious-case-of-bharat.jpg", href: "https://www.youtube.com/watch?v=JDt7lnnmKA0" },
+      { tag: "Short", duration: "YouTube", title: "The Curious Case of Bharat · Short", meta: "TEDxNBS · 21 Nov 2025", image: "/images/speaker/videos/curious-case-of-bharat-short.jpg", href: "https://www.youtube.com/watch?v=W390iP902lk" },
       { tag: "Story", duration: "LinkedIn", title: "Chinese Farmer", meta: "15 May 2024", image: "/images/speaker/background.jpg", href: "https://www.linkedin.com/posts/suranivikas_storytelling-activity-7032283496895197184-fpYR" },
       { tag: "Story", duration: "LinkedIn", title: "Don't Be the Ladder Guy", meta: "15 May 2023", image: "/images/speaker/contact.jpg", href: "https://www.linkedin.com/posts/suranivikas_storytelling-activity-7033455329140969472-XyH2" },
-      { tag: "Profile", duration: "YouTube", title: "Employee Spotlight - Vikas Surani", meta: "14 Sep 2023", image: "/images/speaker/video1.jpg", href: "https://www.youtube.com/watch?v=e6PUD0UEE5o" },
-      { tag: "Testimonial", duration: "YouTube", title: "Brand Champion Testimonial", meta: "18 Dec 2024", image: "/images/speaker/hero.jpg", href: "https://www.youtube.com/watch?v=Je5LxK_kwic" },
-      { tag: "Testimonial", duration: "YouTube", title: "PoSH IC Testimonial", meta: "12 Sep 2024", image: "/images/speaker/background.jpg", href: "https://www.youtube.com/watch?v=12JA80XgHPQ" },
+      { tag: "Profile", duration: "YouTube", title: "Employee Spotlight - Vikas Surani", meta: "14 Sep 2023", image: "/images/speaker/videos/employee-spotlight.jpg", href: "https://www.youtube.com/watch?v=e6PUD0UEE5o" },
+      { tag: "Testimonial", duration: "YouTube", title: "Brand Champion Testimonial", meta: "18 Dec 2024", image: "/images/speaker/videos/brand-champion-testimonial.jpg", href: "https://www.youtube.com/watch?v=Je5LxK_kwic" },
+      { tag: "Testimonial", duration: "YouTube", title: "PoSH IC Testimonial", meta: "12 Sep 2024", image: "/images/speaker/videos/posh-ic-testimonial.jpg", href: "https://www.youtube.com/watch?v=12JA80XgHPQ" },
     ],
   },
   formats: {
