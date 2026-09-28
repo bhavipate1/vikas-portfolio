@@ -39,13 +39,23 @@ type RevealProps = {
   delay?: number;
   y?: number;
   as?: "div" | "section";
+  /**
+   * Pass for content guaranteed to be above the fold on load (hero badges,
+   * headlines, CTAs — the same content whose sibling `PhotoReveal` is marked
+   * `eager`). Skips the IntersectionObserver: with no scroll to re-trigger a
+   * missed initial callback, `inView` can stick at `false` forever and leave
+   * the content permanently invisible. See `PhotoReveal`'s `eager` doc for
+   * the full race-condition writeup — this is the same bug, for text.
+   */
+  eager?: boolean;
 };
 
-export function Reveal({ children, className, delay = 0, y = 24, as = "div" }: RevealProps) {
+export function Reveal({ children, className, delay = 0, y = 24, as = "div", eager = false }: RevealProps) {
   const reduceMotion = useReducedMotion();
   const isPhone = useIsPhone();
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, VIEWPORT);
+  const observedInView = useInView(ref, VIEWPORT);
+  const inView = eager || observedInView;
 
   const travel = isPhone ? Math.max(y, 40) : y;
 
@@ -79,15 +89,19 @@ export function RevealGroup({
   className,
   stagger = 0.08,
   delayChildren = 0,
+  eager = false,
 }: {
   children: ReactNode;
   className?: string;
   stagger?: number;
   delayChildren?: number;
+  /** See `Reveal`'s `eager` doc — same fix, for a staggered group. */
+  eager?: boolean;
 }) {
   const reduceMotion = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, VIEWPORT);
+  const observedInView = useInView(ref, VIEWPORT);
+  const inView = eager || observedInView;
 
   return (
     <motion.div

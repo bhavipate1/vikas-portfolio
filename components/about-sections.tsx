@@ -30,7 +30,7 @@ export function AboutHero() {
       />
       <div className="mx-auto grid max-w-8xl grid-cols-1 items-center gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:px-10">
         <div>
-          <Reveal delay={0}>
+          <Reveal delay={0} eager>
             <Badge>{about.badge}</Badge>
           </Reveal>
           <h1 className="mt-6 text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.04em] sm:text-6xl lg:text-7xl">
@@ -41,10 +41,10 @@ export function AboutHero() {
               className="text-accent"
             />
           </h1>
-          <Reveal delay={0.4}>
+          <Reveal delay={0.4} eager>
             <p className="mt-6 max-w-lg text-balance text-base text-muted">{about.body}</p>
           </Reveal>
-          <Reveal delay={0.5}>
+          <Reveal delay={0.5} eager>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               {about.ctas.map((cta) => (
                 <Cta key={cta.href} href={cta.href} style={cta.style as "solid" | "outline"}>

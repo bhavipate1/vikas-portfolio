@@ -65,7 +65,7 @@ export function Hero() {
             {home.sub}
           </motion.p>
 
-          <RevealGroup className="mt-8 grid max-w-[518px] grid-cols-2 gap-3" stagger={0.08}>
+          <RevealGroup className="mt-8 grid max-w-[518px] grid-cols-2 gap-3" stagger={0.08} eager>
             {home.stats.map((stat) => {
               const Icon = statIcons[stat.icon as keyof typeof statIcons];
               return (
@@ -479,7 +479,7 @@ export function Perspectives() {
                 className="block h-full overflow-hidden border border-paper-border bg-paper-surface transition-colors hover:border-[#8a5a34] focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
               >
                 <div className="relative">
-                  <Photo src={article.image} alt="" className="aspect-[24/11]" light />
+                  <Photo src={article.image} alt="" className="aspect-[16/9]" light />
                   <span className="absolute left-3 top-3 rounded-full bg-paper-surface/95 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-accent">
                     {article.tag}
                   </span>

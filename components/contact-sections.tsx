@@ -36,7 +36,7 @@ export function ContactHero() {
       />
       <div className="mx-auto w-full max-w-8xl grid grid-cols-1 items-center gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:px-10">
         <div>
-          <Reveal delay={0}>
+          <Reveal delay={0} eager>
             <div className="flex flex-wrap items-center gap-3">
               <Badge>{contact.hero.badge}</Badge>
               <span className="text-xs font-normal uppercase tracking-wide text-muted">{contact.hero.replyNote}</span>
@@ -47,11 +47,11 @@ export function ContactHero() {
             <br />
             <RevealWords text={contact.hero.headline[1]} delay={0.2} className="font-light text-accent" />
           </h1>
-          <Reveal delay={0.42}>
+          <Reveal delay={0.42} eager>
             <p className="mt-6 max-w-lg text-balance text-base text-muted">{contact.hero.body}</p>
           </Reveal>
 
-          <RevealGroup className="mt-10 grid grid-cols-1 gap-3.5 sm:grid-cols-2" stagger={0.06} delayChildren={0.52}>
+          <RevealGroup className="mt-10 grid grid-cols-1 gap-3.5 sm:grid-cols-2" stagger={0.06} delayChildren={0.52} eager>
             {heroFields.map((field) => {
               const Icon = heroFieldIcons[field.label as keyof typeof heroFieldIcons];
               const content = (

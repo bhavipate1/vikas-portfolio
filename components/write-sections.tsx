@@ -20,18 +20,18 @@ export function WriteHero() {
       />
       <div className="mx-auto grid max-w-8xl grid-cols-1 items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1fr_1.35fr] lg:gap-16 lg:px-10">
         <div>
-          <Reveal delay={0}>
+          <Reveal delay={0} eager>
             <Badge>{write.badge}</Badge>
           </Reveal>
           <h1 className="mt-5 text-balance text-5xl leading-[0.98] tracking-[-0.04em] sm:text-6xl lg:text-7xl">
             <RevealWords text={write.headline[0]} delay={0.12} className="font-semibold" />{" "}
             <RevealWords text={write.headline[1]} delay={0.2} className="font-light text-accent" />
           </h1>
-          <Reveal delay={0.42}>
+          <Reveal delay={0.42} eager>
             <p className="mt-6 max-w-lg text-balance text-base text-muted">{write.body}</p>
           </Reveal>
 
-          <Reveal delay={0.52}>
+          <Reveal delay={0.52} eager>
             <a
               href={write.subscribeHref}
               target="_blank"
@@ -150,7 +150,7 @@ export function ArticleArchive() {
                 aria-label={`Read ${article.title}`}
               >
                 <div className="relative">
-                  <Photo src={article.image} alt="" className="aspect-[16/10]" light />
+                  <Photo src={article.image} alt="" className="aspect-[16/9]" light />
                   <span className="absolute left-4 top-4 rounded-full bg-background/85 px-3 py-1 text-xs font-normal uppercase tracking-wide text-foreground backdrop-blur-sm">
                     {article.tag}
                   </span>

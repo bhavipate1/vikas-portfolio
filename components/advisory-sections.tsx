@@ -45,7 +45,7 @@ export function AdvisoryHero() {
       />
       <div className="mx-auto grid max-w-8xl grid-cols-1 items-start gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:px-10">
         <div>
-          <Reveal delay={0}>
+          <Reveal delay={0} eager>
             <Badge>{advisory.badge}</Badge>
           </Reveal>
           <h1 className="mt-6 text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.04em] sm:text-6xl">
@@ -53,11 +53,11 @@ export function AdvisoryHero() {
             <br />
             <RevealWords text={advisory.headline[1]} delay={0.2} className="text-accent font-light" />
           </h1>
-          <Reveal delay={0.42}>
+          <Reveal delay={0.42} eager>
             <p className="mt-6 max-w-lg text-balance text-base text-muted">{advisory.body}</p>
           </Reveal>
 
-          <Reveal delay={0.52}>
+          <Reveal delay={0.52} eager>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               {advisory.ctas.map((cta) => (
                 <Cta key={cta.href} href={cta.href} style={cta.style as "solid" | "outline"}>
@@ -70,6 +70,7 @@ export function AdvisoryHero() {
           <RevealGroup
             className="mt-10 flex flex-wrap gap-x-10 gap-y-4 border-t border-border pt-6"
             stagger={0.08}
+            eager
           >
             {advisory.stats.map((stat) => (
               <motion.div key={stat.label} variants={revealItem}>
