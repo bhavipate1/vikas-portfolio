@@ -183,7 +183,7 @@ export const home = {
 export const about = {
   badge: "Being Leader",
   headline: ["An engineer who", "stayed curious"],
-  body: "I started in a small engineering college in Rajkot with no plan beyond “understand how things work.” Twenty years later that same question has taken me through forty countries, a hundred-million-dollar transformation, a TEDx stage, and a newsletter I write mostly to think.",
+  body: "I started in a small engineering college in Rajkot with no plan beyond “understand how things work.” Twenty years later that same question has taken me through 14 countries, a hundred-million-dollar transformation, a TEDx stage, and a newsletter I write mostly to think.",
   ctas: [
     { label: "The journey", href: "#turns", style: "solid" },
     { label: "Off the clock", href: "#off-the-clock", style: "outline" },
@@ -221,31 +221,31 @@ export const about = {
       },
       {
         year: "2009",
-        tag: undefined as string | undefined,
+        tag: "Wipro",
         title: "Learning why good technology fails",
-        school: undefined as string | undefined,
-        body: undefined as string | undefined,
+        school: "Wipro Technologies",
+        body: "A delayed graduate offer, then the 2008 recession pushed the start date back. First real lesson in how good technology fails inside real organisations — the politics, the half-finished data, the team that was never asked.",
       },
       {
         year: "2016",
-        tag: undefined as string | undefined,
-        title: "Forty countries, one recurring problem",
+        tag: "Global",
+        title: "14 countries, one recurring problem",
         school: undefined as string | undefined,
-        body: undefined as string | undefined,
+        body: "Fourteen countries, one repeating pattern: the technology was rarely the hardest part. The real work was always people, process and the P&L nobody wanted to touch.",
       },
       {
         year: "2021",
-        tag: undefined as string | undefined,
-        title: "Leading $50+ transformation",
+        tag: "Mastek",
+        title: "Leading $100M+ transformation",
         school: undefined as string | undefined,
-        body: undefined as string | undefined,
+        body: "From Trainee Associate Consultant to Programme Manager, then leading transformation programmes worth over $100M end to end — the shift from doing the work to owning the outcome.",
       },
       {
         year: "2025",
-        tag: undefined as string | undefined,
+        tag: "TEDx",
         title: "Saying it out loud",
         school: undefined as string | undefined,
-        body: undefined as string | undefined,
+        body: "A TEDx stage, a weekly newsletter, and campus sessions where students ask the questions boards are too polite to. Twenty years of learning, finally spoken instead of just applied.",
       },
     ],
   },
@@ -312,7 +312,7 @@ export const about = {
       },
       {
         tag: "Travel",
-        title: "Forty countries, one habit",
+        title: "14 countries, one habit",
         body: "I skip the landmark and find the market. The best briefing on any economy is what people are buying at 8am.",
       },
       {
@@ -420,7 +420,7 @@ export const speaker = {
   background: {
     eyebrow: "Background",
     title: "Storytelling, strategy, and the scars of delivery",
-    body: "Fifteen-plus years in enterprise IT consulting, transformation programmes across forty countries, and a habit of staying curious in public. The result on stage: complex ideas made simple, relatable and actionable.",
+    body: "Sixteen-plus years in enterprise IT consulting, transformation programmes across 14 countries, and a habit of staying curious in public. The result on stage: complex ideas made simple, relatable and actionable.",
     photoCaption: { name: "Vikas Surani", role: "Global Vice President, Mastek" },
     table: [
       { label: "Senior management", org: "IIM Ahmedabad", meta: "Senior Management Programme" },
