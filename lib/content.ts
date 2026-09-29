@@ -576,7 +576,10 @@ export const advisory = {
         org: "Partner to be confirmed",
         description: "Vocational and digital-skills training for students without access to it.",
         status: "Previously funded",
-        image: "/images/advisory/partner-skilling.jpg",
+        // Was showing an unrelated TEDx stage photo of Vikas — misleading,
+        // since this partner (like the other two) isn't actually confirmed
+        // yet. No real photo exists until one is.
+        image: undefined as string | undefined,
       },
       {
         tag: "Opportunity",
