@@ -784,6 +784,11 @@ const articleRows = [
   ["The Joy of Learning (Back to Campus Edition)", "2025-12-01", "Newsletter", "https://www.linkedin.com/pulse/joy-learning-back-campus-edition-vikas-surani-u3t3f", "/images/articles/the-joy-of-learning-back-to-campus-edition.jpg", "/documents/articles/the-joy-of-learning-back-to-campus-edition.pdf"],
   ["This Story Was Waiting for a Red Dot", "2025-12-22", "Newsletter", "https://www.linkedin.com/pulse/story-waiting-red-dot-vikas-surani-9tbjc", "/images/articles/this-story-was-waiting-for-a-red-dot.jpg", "/documents/articles/this-story-was-waiting-for-a-red-dot.pdf"],
   ["2025 Reflections", "2026-01-01", "Newsletter", "https://www.linkedin.com/pulse/2025-reflections-vikas-surani-9aeqf", "/images/articles/2025-reflections.jpg", "/documents/articles/2025-reflections.pdf"],
+  ["The Edition I Almost Didn't Write", "2026-07-12", "Newsletter", "https://www.linkedin.com/pulse/edition-i-almost-didnt-write-vikas-surani-inpzf", "/images/articles/the-edition-i-almost-didnt-write.jpg", ""],
+  ["The Beginner's Luck", "2026-07-20", "Newsletter", "https://www.linkedin.com/pulse/beginners-luck-vikas-surani-ylm8f", "/images/articles/the-beginners-luck.jpg", ""],
+  ["The Empty Boat Mindset", "2026-08-02", "Newsletter", "https://www.linkedin.com/pulse/empty-boat-mindset-vikas-surani-rka4f", "/images/articles/the-empty-boat-mindset.jpg", ""],
+  ["Give One Hour a Week to Your Idea", "2026-08-30", "Newsletter", "https://www.linkedin.com/pulse/give-one-hour-week-your-idea-vikas-surani-5texe", "/images/articles/give-one-hour-a-week-to-your-idea.jpg", ""],
+  ["3,000+ Reasons to Stay Curious", "2026-09-14", "Newsletter", "https://www.linkedin.com/pulse/3000-reasons-stay-curious-vikas-surani-lumxf", "/images/articles/3000-reasons-to-stay-curious.jpg", ""],
   ["What Oracle E-Business Suite 12.1 Customers Need to Know", "2021-05-14", "Mastek Article", "https://blog.mastek.com/what-oracle-ebs-customers-need-to-know", "/images/articles/what-oracle-e-business-suite-12-1-customers-need-to-know.jpg", "/documents/articles/what-oracle-e-business-suite-12-1-customers-need-to-know.pdf"],
   ["PeopleSoft to Cloud Transformation - It's Not Just Hot Air", "2022-08-08", "Mastek Article", "https://blog.mastek.com/peoplesoft-to-cloud-migration", "/images/articles/peoplesoft-to-cloud-transformation-it-s-not-just-hot-air.jpg", ""],
   ["The Trust of Expertise Behind Value and Velocity in Digital Transformation", "2024-04-22", "Mastek Article", "https://blog.mastek.com/trust-of-expertise-behind-value-and-velocity-in-digital-transformation/", "/images/articles/the-trust-of-expertise-behind-value-and-velocity-in-digital-.jpg", ""],
@@ -791,18 +796,20 @@ const articleRows = [
 ] as const;
 
 export const articles: Article[] = articleRows
-  .map(([title, date, tag, href, image, offlineCopy], index) => ({
+  .map(([title, date, tag, href, image, offlineCopy]) => ({
     title,
     description: tag === "Newsletter" ? "Being Curious Newsletter" : "Published on the Mastek blog",
     tag,
     date,
     meta: date ? new Date(`${date}T00:00:00`).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" }) : "Mastek Website",
     href,
-    homeFeatured: index >= 39 && index <= 41,
     image: image || BRANDED_FALLBACK_IMAGE,
     offlineCopy: offlineCopy || undefined,
   }))
-  .sort((a, b) => b.date.localeCompare(a.date));
+  .sort((a, b) => b.date.localeCompare(a.date))
+  // Always the 3 most recently published editions, so this stays correct as
+  // new rows are added above instead of needing a hand-updated index range.
+  .map((article, index) => ({ ...article, homeFeatured: index < 3 }));
 
 // -------------------------------------------------------------- Contact
 
