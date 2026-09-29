@@ -125,7 +125,7 @@ export function ArticleArchive() {
 
   useEffect(() => {
     const onHash = () => {
-      if (window.location.hash === "#mastek-articles") setActiveFilter("Mastek Article");
+      if (window.location.hash === "#mastek-articles") setActiveFilter("Mastek Insights");
     };
     window.addEventListener("hashchange", onHash);
     return () => window.removeEventListener("hashchange", onHash);

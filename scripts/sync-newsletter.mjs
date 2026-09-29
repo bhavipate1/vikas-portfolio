@@ -118,18 +118,18 @@ function main() {
     return;
   }
 
-  // Insert new rows right before the first Mastek Article row *inside
-  // articleRows specifically* — "Mastek Article" also appears earlier in the
+  // Insert new rows right before the first Mastek Insights row *inside
+  // articleRows specifically* — "Mastek Insights" also appears earlier in the
   // file (e.g. write.filters), so anchor off the array declaration first.
   const arrayDeclStart = contentSrc.indexOf("const articleRows = [");
   if (arrayDeclStart === -1) {
     console.error("Could not find `const articleRows = [`. Aborting without writing.");
     process.exit(1);
   }
-  const marker = '"Mastek Article"';
+  const marker = '"Mastek Insights"';
   const markerPos = contentSrc.indexOf(marker, arrayDeclStart);
   if (markerPos === -1) {
-    console.error("Could not find a Mastek Article row inside articleRows to anchor the insertion. Aborting without writing.");
+    console.error("Could not find a Mastek Insights row inside articleRows to anchor the insertion. Aborting without writing.");
     process.exit(1);
   }
   const fullLineStart = contentSrc.lastIndexOf("\n", markerPos) + 1;

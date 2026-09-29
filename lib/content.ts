@@ -150,16 +150,14 @@ export const home = {
     eyebrow: "Insights",
     title: "Writing & perspectives",
   },
+  // Real comment from the "Give One Hour a Week to Your Idea" Being Curious
+  // edition (Aug 30, 2026) — full title verified via public search since
+  // LinkedIn's own comment view only shows it in full to a logged-in viewer.
   testimonials: [
     {
-      quote: "He talks about AI the way an operator does — no theatre, just what worked, what failed, and why. Our leadership team was still debating it a week later.",
-      name: "Conference Chair",
-      meta: "Industry summit, Ahmedabad",
-    },
-    {
-      quote: "Three hundred students, zero phones out. He made the future of work feel like something they get to build, not something happening to them.",
-      name: "Programme Director",
-      meta: "Business school, Gujarat",
+      quote: "So many brilliant minds in our nation have their ideas “killed” — not just by the person who thought of them, but by the environment, lack of opportunities, resources, time, and sometimes simply the absence of support.",
+      name: "Rafik Mansuri",
+      meta: "Managing Trustee, Gujarat Rajya Gram Vikas Samiti",
     },
   ],
   homeContact: {
@@ -664,7 +662,7 @@ export const write = {
   subscribeNote: "Follow Being Curious on LinkedIn for every new edition.",
   subscribeHref: "https://www.linkedin.com/newsletters/being-curious-7247115007161757696/",
   categoryLabels: ["Leadership", "AI", "Growth mindset", "Transformation"],
-  filters: ["Newsletter", "Mastek Article"],
+  filters: ["Newsletter", "Mastek Insights"],
   hubLinks: [
     { label: "The Curiosity Channel", meta: "Being Curious on YouTube", href: "https://www.youtube.com/@beingcurious3211", external: true },
     { label: "The Curious Brief", meta: "Newsletter on LinkedIn", href: "https://www.linkedin.com/newsletters/being-curious-7247115007161757696/", external: true },
@@ -721,7 +719,7 @@ export const write = {
 export type Article = {
   title: string;
   description: string;
-  tag: "Newsletter" | "Mastek Article";
+  tag: "Newsletter" | "Mastek Insights";
   date: string;
   meta: string;
   href: string;
@@ -789,10 +787,10 @@ const articleRows = [
   ["The Empty Boat Mindset", "2026-08-02", "Newsletter", "https://www.linkedin.com/pulse/empty-boat-mindset-vikas-surani-rka4f", "/images/articles/the-empty-boat-mindset.jpg", ""],
   ["Give One Hour a Week to Your Idea", "2026-08-30", "Newsletter", "https://www.linkedin.com/pulse/give-one-hour-week-your-idea-vikas-surani-5texe", "/images/articles/give-one-hour-a-week-to-your-idea.jpg", ""],
   ["3,000+ Reasons to Stay Curious", "2026-09-14", "Newsletter", "https://www.linkedin.com/pulse/3000-reasons-stay-curious-vikas-surani-lumxf", "/images/articles/3000-reasons-to-stay-curious.jpg", ""],
-  ["What Oracle E-Business Suite 12.1 Customers Need to Know", "2021-05-14", "Mastek Article", "https://blog.mastek.com/what-oracle-ebs-customers-need-to-know", "/images/articles/what-oracle-e-business-suite-12-1-customers-need-to-know.jpg", "/documents/articles/what-oracle-e-business-suite-12-1-customers-need-to-know.pdf"],
-  ["PeopleSoft to Cloud Transformation - It's Not Just Hot Air", "2022-08-08", "Mastek Article", "https://blog.mastek.com/peoplesoft-to-cloud-migration", "/images/articles/peoplesoft-to-cloud-transformation-it-s-not-just-hot-air.jpg", ""],
-  ["The Trust of Expertise Behind Value and Velocity in Digital Transformation", "2024-04-22", "Mastek Article", "https://blog.mastek.com/trust-of-expertise-behind-value-and-velocity-in-digital-transformation/", "/images/articles/the-trust-of-expertise-behind-value-and-velocity-in-digital-.jpg", ""],
-  ["AI in ERP: Smarter Systems, Better Business Decisions", "", "Mastek Article", "https://blog.mastek.com/ai-in-erp-smarter-systems-better-business-decisions", "/images/articles/ai-in-erp-smarter-systems-better-business-decisions.jpg", ""],
+  ["What Oracle E-Business Suite 12.1 Customers Need to Know", "2021-05-14", "Mastek Insights", "https://blog.mastek.com/what-oracle-ebs-customers-need-to-know", "/images/articles/what-oracle-e-business-suite-12-1-customers-need-to-know.jpg", "/documents/articles/what-oracle-e-business-suite-12-1-customers-need-to-know.pdf"],
+  ["PeopleSoft to Cloud Transformation - It's Not Just Hot Air", "2022-08-08", "Mastek Insights", "https://blog.mastek.com/peoplesoft-to-cloud-migration", "/images/articles/peoplesoft-to-cloud-transformation-it-s-not-just-hot-air.jpg", ""],
+  ["The Trust of Expertise Behind Value and Velocity in Digital Transformation", "2024-04-22", "Mastek Insights", "https://blog.mastek.com/trust-of-expertise-behind-value-and-velocity-in-digital-transformation/", "/images/articles/the-trust-of-expertise-behind-value-and-velocity-in-digital-.jpg", ""],
+  ["AI in ERP: Smarter Systems, Better Business Decisions", "", "Mastek Insights", "https://blog.mastek.com/ai-in-erp-smarter-systems-better-business-decisions", "/images/articles/ai-in-erp-smarter-systems-better-business-decisions.jpg", ""],
 ] as const;
 
 export const articles: Article[] = articleRows
