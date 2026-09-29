@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { LogoMarquee } from "@/components/logo-marquee";
 import { Photo } from "@/components/photo";
@@ -41,6 +41,26 @@ export function WriteHero() {
               Subscribe on LinkedIn <ArrowUpRightIcon className="h-4 w-4" />
             </a>
             <p className="mt-4 text-xs text-muted">{write.subscribeNote}</p>
+          </Reveal>
+
+          <Reveal delay={0.6} eager>
+            <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
+              {write.hubLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                  className="group flex flex-col gap-1 rounded-md border border-border px-4 py-3 transition-colors hover:border-accent focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+                >
+                  <span className="flex items-center justify-between gap-2 text-sm text-foreground">
+                    {link.label}
+                    <ArrowUpRightIcon className="h-3.5 w-3.5 shrink-0 text-accent transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </span>
+                  <span className="text-[11px] uppercase tracking-wide text-muted">{link.meta}</span>
+                </a>
+              ))}
+            </div>
           </Reveal>
         </div>
 
@@ -103,8 +123,16 @@ export function ArticleArchive() {
     return articles.filter((a) => a.tag === activeFilter);
   }, [activeFilter]);
 
+  useEffect(() => {
+    const onHash = () => {
+      if (window.location.hash === "#mastek-articles") setActiveFilter("Mastek Article");
+    };
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
+
   return (
-    <section className="bg-paper py-12 sm:py-14">
+    <section id="mastek-articles" className="scroll-mt-24 bg-paper py-12 sm:py-14">
       <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-10">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <Reveal>
@@ -197,6 +225,42 @@ export function WhyIWrite() {
             <div className="text-xs text-paper-muted">{write.whyIWrite.role}</div>
           </div>
         </Reveal>
+      </div>
+    </section>
+  );
+}
+
+export function LearnerJourney() {
+  return (
+    <section className="border-t border-border bg-background py-12 sm:py-16">
+      <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-10">
+        <Reveal className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div>
+            <Eyebrow>{write.journey.eyebrow}</Eyebrow>
+            <h2 className="mt-5 max-w-2xl text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
+              {write.journey.title}
+            </h2>
+          </div>
+          <p className="max-w-sm text-sm text-muted">{write.journey.intro}</p>
+        </Reveal>
+
+        <RevealGroup className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.05}>
+          {write.journey.items.map((item, i) => (
+            <motion.div
+              key={item.title}
+              variants={revealItem}
+              whileHover={{ y: -4 }}
+              className="flex h-full flex-col border border-border bg-surface p-6 transition-colors hover:border-accent"
+            >
+              <div className="flex items-center justify-between gap-4">
+                <span className="text-xs font-medium uppercase tracking-widest text-accent">{item.year}</span>
+                <span className="text-xs tabular-nums text-muted">{String(i + 1).padStart(2, "0")}</span>
+              </div>
+              <h3 className="mt-6 text-xl font-normal">{item.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted">{item.body}</p>
+            </motion.div>
+          ))}
+        </RevealGroup>
       </div>
     </section>
   );

@@ -11,6 +11,8 @@ import {
   SpeakAbout,
   Testimonials,
 } from "@/components/home-sections";
+import { LinkedInVoices } from "@/components/linkedin-voices";
+import { getTestimonials } from "@/lib/testimonials";
 
 export default function Home() {
   return (
@@ -25,6 +27,7 @@ export default function Home() {
       <Formats />
       <QuoteStats />
       <Perspectives />
+      <LinkedInVoices page="curious" items={getTestimonials("curious")} />
       <HomeContact />
     </>
   );

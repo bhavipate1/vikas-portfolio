@@ -146,19 +146,32 @@ export function CareInitiatives() {
         </Reveal>
 
         <RevealGroup className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
-          {advisory.cares.items.map((item) => (
-            <motion.div key={`${item.title}-${item.organisation ?? "initiative"}`} variants={revealItem} whileHover={{ y: -4 }}>
-              <TiltCard className="flex h-full min-h-52 flex-col border border-paper-border bg-paper-surface p-6">
-                <span className="flex h-10 w-10 items-center justify-center rounded-[3px] bg-[#8a5a34] text-white">
-                  <HeartIcon className="h-4 w-4" />
-                </span>
-                <h3 className="mt-7 text-xl font-normal text-paper-foreground">{item.title}</h3>
-                {item.organisation && <p className="mt-2 text-sm font-medium text-[#8a5a34]">{item.organisation}</p>}
-                {item.detail && <p className="mt-3 text-sm text-paper-muted">{item.detail}</p>}
-                {item.meta && <p className="mt-auto border-t border-paper-border pt-4 text-xs text-paper-muted">{item.meta}</p>}
-              </TiltCard>
-            </motion.div>
-          ))}
+          {advisory.cares.items.map((item) => {
+            // A title-only item (no org/detail/meta) has nothing to fill a full
+            // card with — stretching it to match its taller siblings just leaves
+            // a big empty gap. Let it size to its own content instead.
+            const isSparse = !item.organisation && !item.detail && !item.meta;
+            return (
+              <motion.div
+                key={`${item.title}-${item.organisation ?? "initiative"}`}
+                variants={revealItem}
+                whileHover={{ y: -4 }}
+                className={isSparse ? "self-start" : undefined}
+              >
+                <TiltCard
+                  className={`flex h-full flex-col border border-paper-border bg-paper-surface p-6 ${isSparse ? "" : "min-h-52"}`}
+                >
+                  <span className="flex h-10 w-10 items-center justify-center rounded-[3px] bg-[#8a5a34] text-white">
+                    <HeartIcon className="h-4 w-4" />
+                  </span>
+                  <h3 className="mt-7 text-xl font-normal text-paper-foreground">{item.title}</h3>
+                  {item.organisation && <p className="mt-2 text-sm font-medium text-[#8a5a34]">{item.organisation}</p>}
+                  {item.detail && <p className="mt-3 text-sm text-paper-muted">{item.detail}</p>}
+                  {item.meta && <p className="mt-auto border-t border-paper-border pt-4 text-xs text-paper-muted">{item.meta}</p>}
+                </TiltCard>
+              </motion.div>
+            );
+          })}
         </RevealGroup>
       </div>
     </section>

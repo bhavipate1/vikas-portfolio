@@ -665,6 +665,11 @@ export const write = {
   subscribeHref: "https://www.linkedin.com/newsletters/being-curious-7247115007161757696/",
   categoryLabels: ["Leadership", "AI", "Growth mindset", "Transformation"],
   filters: ["Newsletter", "Mastek Article"],
+  hubLinks: [
+    { label: "The Curiosity Channel", meta: "Being Curious on YouTube", href: "https://www.youtube.com/@beingcurious3211", external: true },
+    { label: "The Curious Brief", meta: "Newsletter on LinkedIn", href: "https://www.linkedin.com/newsletters/being-curious-7247115007161757696/", external: true },
+    { label: "Enterprise Playbooks", meta: "Mastek articles", href: "#mastek-articles", external: false },
+  ],
   featured: {
     issue: "Latest issue · #42",
     title: "2025 Reflections",
@@ -694,6 +699,22 @@ export const write = {
     title: "Conversations in development",
     intro: "Podcast concepts from the portfolio index. Links will be added when episodes are published.",
     items: ["Being Curious with Vikas Surani", "Coffee Conversations with Vikas Surani"],
+  },
+  journey: {
+    eyebrow: "Being Learner",
+    title: "A lifetime of learning, one chapter at a time",
+    intro: "From a joint family in Gujarat to transformation programmes across fourteen countries.",
+    items: [
+      { year: "1985", title: "Roots in a joint family", body: "Grew up in a joint family. Top three in class through Class 8, with cricket as the closest passion." },
+      { year: "School years", title: "The seeker", body: "A spiritual phase so strong that, at one point, becoming a monk felt like a real path." },
+      { year: "2001", title: "Science in Gandhinagar", body: "Moved to Gandhinagar for Class 11 and 12 in science under the CBSE board." },
+      { year: "2004–2008", title: "Engineering, and a new obsession", body: "Bachelor of Engineering in Computer Science at Atmiya University. Less about programming, more about data and everything digital." },
+      { year: "2007–2008", title: "Wipro, and a recession", body: "A campus offer from Wipro, then the 2008 recession delayed the joining date. Worked on DCOI: Device Control Over Internet." },
+      { year: "2009–2011", title: "MBA, first batch", body: "Master of Business Administration in Marketing and Information Systems at Ahmedabad University." },
+      { year: "Mastek", title: "The consulting climb", body: "Trainee Associate Consultant, Associate Consultant, Consultant, Solutions and Pre-sales, then Programme Manager." },
+      { year: "Growth", title: "New regions, new cultures", body: "Business development and overall strategy beyond Oracle. Adopting new cultures and leading by helping first." },
+      { year: "14 countries", title: "A global footprint", body: "India, UAE, UK, Australia, New Zealand, Philippines, Qatar, Oman, Kuwait, Denmark, Thailand, Singapore, Malaysia and Vietnam." },
+    ],
   },
 };
 
