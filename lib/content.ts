@@ -29,8 +29,8 @@ export const nav = [
   { label: "Being Curious", href: "/" },
   { label: "Being Leader", href: "/about" },
   { label: "Being Speaker", href: "/speaker" },
-  { label: "Being Writer", href: "/advisory" },
-  { label: "Being Learner", href: "/write" },
+  { label: "Advisory", href: "/advisory" },
+  { label: "Being Writer", href: "/write" },
 ];
 
 // ---------------------------------------------------------------- Homepage
@@ -659,7 +659,7 @@ export const advisory = {
 // ------------------------------------------------------------------ Write
 
 export const write = {
-  badge: "Being Learner · Being Curious Newsletter",
+  badge: "Being Writer · Being Curious Newsletter",
   headline: ["Thinking", "out loud"],
   body: "Newsletters, essays and half-formed ideas on AI, transformation and leadership written from inside the work, not above it.",
   subscribeNote: "Follow Being Curious on LinkedIn for every new edition.",
@@ -669,7 +669,7 @@ export const write = {
   hubLinks: [
     { label: "The Curiosity Channel", meta: "Being Curious on YouTube", href: "https://www.youtube.com/@beingcurious3211", external: true },
     { label: "The Curious Brief", meta: "Newsletter on LinkedIn", href: "https://www.linkedin.com/newsletters/being-curious-7247115007161757696/", external: true },
-    { label: "Enterprise Playbooks", meta: "Mastek articles", href: "#mastek-articles", external: false },
+    { label: "Enterprise Playbooks", meta: "Mastek articles", href: "#being-learner-library", external: false },
   ],
   featured: {
     issue: "Latest issue · #42",
@@ -686,7 +686,7 @@ export const write = {
     role: "Global Vice President, Mastek",
   },
   experiential: {
-    eyebrow: "Being Learner",
+    eyebrow: "Being Writer",
     title: "An experiential newsletter",
     body: "2900+ leaders, operators and students read Being Curious: what worked, what didn't, and what I'm still unsure about.",
     stats: [
@@ -702,7 +702,7 @@ export const write = {
     items: ["Being Curious with Vikas Surani", "Coffee Conversations with Vikas Surani"],
   },
   journey: {
-    eyebrow: "Being Learner",
+    eyebrow: "Being Writer",
     title: "A lifetime of learning, one chapter at a time",
     intro: "From a joint family in Gujarat to transformation programmes across fourteen countries.",
     items: [

@@ -114,6 +114,53 @@ export function WriteCategoryLabels() {
   );
 }
 
+export function NewsletterFeature() {
+  return (
+    <section id="newsletter" className="border-b border-border bg-surface py-12 sm:py-16">
+      <div className="mx-auto grid max-w-8xl items-center gap-10 px-5 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:px-10">
+        <Reveal>
+          <Eyebrow>{write.featured.issue}</Eyebrow>
+          <h2 className="mt-5 max-w-2xl text-balance text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+            {write.featured.title}
+          </h2>
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-muted">{write.featured.body}</p>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <a
+              href={write.subscribeHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-[5px] bg-accent px-6 py-3 text-sm font-normal text-accent-foreground transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+            >
+              Subscribe to Being Curious <ArrowUpRightIcon className="h-4 w-4" />
+            </a>
+            <span className="text-xs text-muted">{write.featured.meta}</span>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          <div className="border border-border bg-surface-2 p-6 sm:p-8">
+            <div className="flex items-center justify-between gap-4 border-b border-border pb-5">
+              <span className="text-xs font-medium uppercase tracking-widest text-accent">Being Curious</span>
+              <span className="text-xs text-muted">Newsletter</span>
+            </div>
+            <p className="mt-8 font-heading text-2xl font-light leading-snug text-foreground sm:text-3xl">
+              Ideas from inside the work, not above it.
+            </p>
+            <div className="mt-8 grid grid-cols-3 gap-4 border-t border-border pt-6">
+              {write.experiential.stats.map((stat) => (
+                <div key={stat.label}>
+                  <div className="font-heading text-xl font-semibold text-accent">{stat.value}</div>
+                  <div className="mt-1 text-[10px] uppercase tracking-wide text-muted">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 export function ArticleArchive() {
   const [activeFilter, setActiveFilter] = useState("All");
   const filters = ["All", ...write.filters];
@@ -125,14 +172,16 @@ export function ArticleArchive() {
 
   useEffect(() => {
     const onHash = () => {
-      if (window.location.hash === "#mastek-articles") setActiveFilter("Mastek Perspectives");
+      if (window.location.hash === "#being-learner-library" || window.location.hash === "#mastek-articles") {
+        setActiveFilter("Mastek Perspectives");
+      }
     };
     window.addEventListener("hashchange", onHash);
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
 
   return (
-    <section id="mastek-articles" className="scroll-mt-24 bg-paper py-12 sm:py-14">
+    <section id="being-learner-library" className="scroll-mt-24 bg-paper py-12 sm:py-14">
       <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-10">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <Reveal>
