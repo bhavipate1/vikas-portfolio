@@ -1,38 +1,16 @@
 import type { Metadata } from "next";
-import {
-  AdvisoryCause,
-  CareInitiatives,
-  AdvisoryFaq,
-  AdvisoryForm,
-  AdvisoryHero,
-  AdvisoryHowItWorks,
-  AdvisoryImpact,
-  AdvisoryOffers,
-  AdvisoryPartners,
-  AdvisoryPrinciples,
-  Testimonials,
-} from "@/components/advisory-sections";
-import { AdvisoryFormProvider } from "@/components/advisory-form-context";
+import { LearnerHero, LearnerJourney } from "@/components/learner-sections";
 
 export const metadata: Metadata = {
-  title: "Advisory",
-  description: "Paid advisory hours where every contribution funds education for students who can't buy access to advice.",
+  title: "Being Learner",
+  description: "The experiences, questions and lessons that shaped Vikas Surani's learning journey.",
 };
 
 export default function AdvisoryPage() {
   return (
-    <AdvisoryFormProvider>
-      <AdvisoryHero />
-      <CareInitiatives />
-      <AdvisoryHowItWorks />
-      <AdvisoryImpact />
-      <AdvisoryCause />
-      <AdvisoryOffers />
-      <AdvisoryPartners />
-      <AdvisoryPrinciples />
-      <Testimonials />
-      <AdvisoryFaq />
-      <AdvisoryForm />
-    </AdvisoryFormProvider>
+    <>
+      <LearnerHero />
+      <LearnerJourney />
+    </>
   );
 }

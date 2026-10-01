@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import {
   ArticleArchive,
   Experiential,
-  LearnerJourney,
   NewsletterFeature,
   PodcastCards,
   WhyIWrite,
@@ -23,7 +22,6 @@ export default function WritePage() {
       <ArticleArchive />
       <NewsletterFeature />
       <WhyIWrite />
-      <LearnerJourney />
       <PodcastCards />
       <Experiential />
     </>

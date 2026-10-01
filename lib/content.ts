@@ -29,8 +29,9 @@ export const nav = [
   { label: "Being Curious", href: "/" },
   { label: "Being Leader", href: "/about" },
   { label: "Being Speaker", href: "/speaker" },
-  { label: "Advisory", href: "/advisory" },
+  { label: "Being Learner", href: "/advisory" },
   { label: "Being Writer", href: "/write" },
+  { label: "Advisory", href: "/consulting" },
 ];
 
 // ---------------------------------------------------------------- Homepage
@@ -443,7 +444,7 @@ export const speaker = {
 // --------------------------------------------------------------- Advisory
 
 export const advisory = {
-  badge: "Being Writer · 100% donated",
+  badge: "Advisory · 100% donated",
   headline: ["Buy a conversation.", "Give back."],
   body: "Book an hour with me for advice, perspective or mentorship. I don't keep the contribution — every rupee goes to a social cause. Your conversation creates an impact beyond the conversation.",
   ctas: [
@@ -702,7 +703,7 @@ export const write = {
     items: ["Being Curious with Vikas Surani", "Coffee Conversations with Vikas Surani"],
   },
   journey: {
-    eyebrow: "Being Writer",
+    eyebrow: "Being Learner",
     title: "A lifetime of learning, one chapter at a time",
     intro: "From a joint family in Gujarat to transformation programmes across fourteen countries.",
     items: [
@@ -717,6 +718,13 @@ export const write = {
       { year: "14 countries", title: "A global footprint", body: "India, UAE, UK, Australia, New Zealand, Philippines, Qatar, Oman, Kuwait, Denmark, Thailand, Singapore, Malaysia and Vietnam." },
     ],
   },
+};
+
+export const learner = {
+  badge: "Being Learner",
+  headline: ["A lifetime of", "learning"],
+  body: "The lessons, questions and experiences that shaped Vikas Surani, from a joint family in Gujarat to transformation programmes across fourteen countries.",
+  journey: write.journey,
 };
 
 export type Article = {
