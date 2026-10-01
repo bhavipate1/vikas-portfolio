@@ -31,7 +31,6 @@ export const nav = [
   { label: "Being Speaker", href: "/speaker" },
   { label: "Being Learner", href: "/advisory" },
   { label: "Being Writer", href: "/write" },
-  { label: "Advisory", href: "/consulting" },
 ];
 
 // ---------------------------------------------------------------- Homepage
