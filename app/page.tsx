@@ -9,7 +9,6 @@ import {
   Perspectives,
   QuoteStats,
   SpeakAbout,
-  Testimonials,
 } from "@/components/home-sections";
 import { LinkedInVoices } from "@/components/linkedin-voices";
 import { getTestimonials } from "@/lib/testimonials";
@@ -21,7 +20,6 @@ export default function Home() {
       <LogoStrip />
       <SpeakAbout />
       <AboutTeaser />
-      <Testimonials />
       <FourAreas />
       <InTheRoom />
       <Formats />

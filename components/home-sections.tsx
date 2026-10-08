@@ -498,42 +498,6 @@ export function Perspectives() {
   );
 }
 
-export function Testimonials() {
-  return (
-    <section className="border-t border-paper-border bg-paper pt-20 pb-14 sm:pt-28 sm:pb-16">
-      <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-10">
-        <RevealGroup className="grid grid-cols-1 gap-6 sm:grid-cols-2" stagger={0.1}>
-          {home.testimonials.map((t) => (
-            <motion.figure key={t.name} variants={revealItem}>
-              <TiltCard className="border border-paper-border bg-paper-surface p-10">
-              <div className="flex gap-0.5 text-[#8a5a34] tracking-[2.60px]" aria-hidden>
-                ★★★★★
-              </div>
-              <blockquote className="mt-7 text-xl font-normal leading-snug text-balance text-paper-foreground">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
-              <figcaption className="mt-7 flex items-center gap-3 text-sm text-paper-muted">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent-soft text-xs font-semibold text-accent">
-                  {t.name
-                    .split(" ")
-                    .map((w) => w[0])
-                    .slice(0, 2)
-                    .join("")}
-                </span>
-                <span>
-                  <span className="block font-normal text-paper-foreground">{t.name}</span>
-                  <span className="block text-xs text-paper-muted">{t.meta}</span>
-                </span>
-              </figcaption>
-              </TiltCard>
-            </motion.figure>
-          ))}
-        </RevealGroup>
-      </div>
-    </section>
-  );
-}
-
 type HomeContactStatus = "idle" | "submitting" | "success" | "error";
 
 export function HomeContact() {

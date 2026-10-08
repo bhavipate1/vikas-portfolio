@@ -150,16 +150,6 @@ export const home = {
     eyebrow: "Insights",
     title: "Writing & perspectives",
   },
-  // Real comment from the "Give One Hour a Week to Your Idea" Being Curious
-  // edition (Aug 30, 2026) — full title verified via public search since
-  // LinkedIn's own comment view only shows it in full to a logged-in viewer.
-  testimonials: [
-    {
-      quote: "So many brilliant minds in our nation have their ideas “killed” — not just by the person who thought of them, but by the environment, lack of opportunities, resources, time, and sometimes simply the absence of support.",
-      name: "Rafik Mansuri",
-      meta: "Managing Trustee, Gujarat Rajya Gram Vikas Samiti",
-    },
-  ],
   homeContact: {
     eyebrow: "Contact",
     title: "Start a conversation",

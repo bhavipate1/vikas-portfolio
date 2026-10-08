@@ -96,7 +96,7 @@ export function AboutStats() {
           <motion.div
             key={stat.label}
             variants={revealItem}
-            className={`py-8 ${
+            className={`py-8 text-center ${
               i === about.stats.length - 1
                 ? "sm:pl-7 sm:pt-8 sm:pb-14"
                 : i === 0
