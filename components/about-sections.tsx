@@ -96,12 +96,8 @@ export function AboutStats() {
           <motion.div
             key={stat.label}
             variants={revealItem}
-            className={`py-8 text-center ${
-              i === about.stats.length - 1
-                ? "sm:pl-7 sm:pt-8 sm:pb-14"
-                : i === 0
-                  ? "sm:border-r sm:border-overlay-border sm:pr-8"
-                  : "sm:border-r sm:border-overlay-border sm:pl-7 sm:pr-8"
+            className={`flex flex-col items-center px-4 py-8 text-center ${
+              i === about.stats.length - 1 ? "sm:pt-8 sm:pb-14" : "sm:border-r sm:border-overlay-border"
             }`}
           >
             <CountUp value={stat.value} className="text-3xl font-semibold text-accent tabular-nums sm:text-4xl" />
