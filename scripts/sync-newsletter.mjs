@@ -25,6 +25,7 @@ const CONTENT_PATH = path.join(REPO_ROOT, "lib", "content.ts");
 const IMAGES_DIR = path.join(REPO_ROOT, "public", "images", "articles");
 const NEWSLETTER_INDEX_URL = "https://www.linkedin.com/newsletters/being-curious-7247115007161757696/";
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0 Safari/537.36";
+const TSC_BINARY = path.join(REPO_ROOT, "node_modules", "typescript", "bin", "tsc");
 
 // --ssl-no-revoke works around a corporate-network TLS-inspection proxy on
 // Windows (curl's schannel backend trusts it via the OS cert store; Node's
@@ -138,12 +139,14 @@ function main() {
 
   console.log("Running typecheck...");
   try {
-    execFileSync("npx", ["tsc", "--noEmit", "-p", "."], { cwd: REPO_ROOT, stdio: "inherit" });
-  } catch {
+    execFileSync(process.execPath, [TSC_BINARY, "--noEmit", "-p", "."], { cwd: REPO_ROOT, stdio: "inherit" });
+  } catch (err) {
+    console.error(`Typecheck command failed: ${err.message}`);
     console.error("Typecheck failed after inserting new rows. Reverting content.ts and aborting — nothing pushed.");
     fs.writeFileSync(CONTENT_PATH, contentSrc);
     for (const slug of newSlugs) {
-      // best-effort cleanup of any images we did manage to save this run
+      const imagePath = path.join(IMAGES_DIR, `${slugify(newRows.find((row) => row.includes(`/pulse/${slug}`))?.match(/^\s*\[\"([^\"]+)/)?.[1] ?? "")}.jpg`);
+      if (fs.existsSync(imagePath)) fs.unlinkSync(imagePath);
     }
     process.exit(1);
   }
@@ -152,7 +155,7 @@ function main() {
   const addedTitles = newRows.map((r) => r.match(/^\s*\["([^"]+)"/)[1]);
   const imageFiles = newRows.map((r) => {
     const m = r.match(/"(\/images\/articles\/[^"]+)"/);
-    return path.join(REPO_ROOT, m[1]);
+    return path.join(REPO_ROOT, "public", m[1].replace(/^\//, ""));
   });
 
   execFileSync("git", ["add", CONTENT_PATH, ...imageFiles], { cwd: REPO_ROOT });
