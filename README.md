@@ -34,3 +34,15 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Admin dashboard
+
+Contact and advisory submissions are stored in PostgreSQL and can be managed at `/admin`.
+
+Configure these environment variables on Render:
+
+- `DATABASE_URL`: the internal connection string for the Render PostgreSQL database.
+- `ADMIN_EMAIL`: the only email allowed to sign in (defaults to `suranivikas@gmail.com`).
+- `ADMIN_PASSWORD`: a strong private password for the dashboard.
+- `ADMIN_SESSION_SECRET`: a long random value used to sign admin sessions.
+
+Create a PostgreSQL database, copy its connection string into `DATABASE_URL`, set the admin secrets, and redeploy. The submissions table is created automatically when the first form is submitted or the admin dashboard loads.

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { createSubmission } from "@/lib/submissions";
 
 type ContactPayload = {
   topic?: string;
@@ -35,9 +36,11 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Please enter a valid email address." }, { status: 422 });
   }
 
-  // TODO: wire up an email provider (Resend/SendGrid) or CRM webhook here.
-  // Logging server-side for now so submissions aren't silently dropped.
-  console.log("Contact form submission:", { topic, name, email, organisation, date, message });
-
-  return NextResponse.json({ ok: true });
+  try {
+    await createSubmission({ topic, name, email, organisation, date, message });
+    return NextResponse.json({ ok: true });
+  } catch (error) {
+    console.error("Contact form submission failed:", error);
+    return NextResponse.json({ error: "The form is temporarily unavailable. Please try again later." }, { status: 503 });
+  }
 }
